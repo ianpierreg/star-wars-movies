@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react';
-import '../stylesheets/cards.scss'
+import '../assets/stylesheets/cards.scss'
 import PropTypes from 'prop-types';
 import Card from "./card";
 import images from "../helpers/images_loader";
 import shuffleArray from "../helpers/array";
 import giveMeOneColor from "../helpers/color_random";
-import { useStore } from "react-context-hook";
+import { useStore, useSetStoreValue } from "react-context-hook";
 
 const mockData = {
   "count": 6,
@@ -516,9 +516,9 @@ const CardsWrapper = () => {
   const [selected] = useStore('selected')
   const [rightOnes, setRightOnes] = useStore('rightOnes')
 
-
-  // logic to randomically apply images to cards
   let { results } = mockData
+  const setMaxPoints = useSetStoreValue('maxPoints')
+  setMaxPoints(results.length)
 
 
   results = results.map(result => {
@@ -537,8 +537,8 @@ const CardsWrapper = () => {
   })
 
   results = shuffleArray(results)
+  const [movies] = useState(results)
 
-  const [movies, setMovies] = useState(results)
   useEffect(() => {
     const { firstSelected, secondSelected } = selected
     console.log('selected', selected)
@@ -549,12 +549,8 @@ const CardsWrapper = () => {
   }, [selected])
 
 
-  useEffect(() => {
-    console.log('ro', rightOnes)
-   }, [rightOnes])
-
   return (
-    <div id="movies-wrapper">
+    <div className="movies-wrapper">
       {movies.map(result => <Card dat={result} key={result.id} />)}
     </div>
   )

@@ -1,7 +1,8 @@
 import React from 'react'
-import './stylesheets/stars_panel.scss'
+import './assets/stylesheets/stars_panel.scss'
 import CardsWrapper from "./components/cards_wrapper"
 import { withStore } from 'react-context-hook'
+import Header from './components/header'
 
 
 function App() {
@@ -10,10 +11,7 @@ function App() {
           <div id='stars'/>
           <div id='stars2'/>
           <div id='stars3'/>
-          <div id='title'>
-            STAR WARS
-            Movies
-          </div>
+          <Header />
           <CardsWrapper />
         </div>
     )
@@ -24,6 +22,8 @@ const initialValue = {
     firstSelected: { id: -1, episodeId: -1 },
     secondSelected: { id: -1, episodeId: -1 }
   },
+  bestTime: 0,
+  maxPoints: 0,
   rightOnes: []
 }
 

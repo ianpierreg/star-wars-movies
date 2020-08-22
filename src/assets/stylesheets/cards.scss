@@ -1,17 +1,18 @@
 @import 'base';
 
-#movies-wrapper {
+.movies-wrapper {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
   overflow-x: hidden;
-  height: 100vh;
-  padding: 25vh 0;
+  height: 80vh;
+  padding: 50px 30px;
+  box-sizing: border-box;
 }
 
 .card {
   width: 25%;
-  height: 20%;
+  height: 33%;
   perspective: 1000px;
   filter: drop-shadow(4px 4px 1px rgba(50, 50, 0, 0.5));
   display: flex;
@@ -22,14 +23,14 @@
 .content {
   position: absolute;
   width: 80%;
-  height: 100%;
-  transition: transform 1s;
+  height: 80%;
+  transition: transform 0.4s;
   transform-style: preserve-3d;
 }
 
 .card.clicked .content {
   transform: rotateY(180deg);
-  transition: transform 0.5s;
+  transition: transform 0.2s;
 }
 
 .front, .back {
@@ -55,7 +56,7 @@
 }
 
 .module {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(https://rock95.com/wp-content/uploads/2017/01/14137284401_4f06e9f8c6_z-400x200.jpg);
+  background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.4)), url(https://rock95.com/wp-content/uploads/2017/01/14137284401_4f06e9f8c6_z-400x200.jpg);
   color: black;
   width: inherit;
   height: inherit;
@@ -79,6 +80,12 @@
   justify-content: center;
   align-items: flex-end;
   box-shadow: -1px 14px 28px 0px #6b6b6b;
+
+  img {
+    filter: brightness(40%);
+    width: inherit;
+    height: inherit;
+  }
 }
 
 p {
@@ -88,10 +95,4 @@ p {
 .metal {
   box-shadow: -1px 14px 28px 0px rgba(107, 107, 107, 1);
   background-image: -webkit-radial-gradient(50% 0%, 8% 50%, hsla(0, 0%, 100%, 0.5) 0%, hsla(0, 0%, 100%, 0) 100%), -webkit-radial-gradient(50% 100%, 12% 50%, hsla(0, 0%, 100%, 0.6) 0%, hsla(0, 0%, 100%, 0) 100%), -webkit-radial-gradient(0% 50%, 50% 7%, hsla(0, 0%, 100%, 0.5) 0%, hsla(0, 0%, 100%, 0) 100%), -webkit-radial-gradient(100% 50%, 50% 5%, hsla(0, 0%, 100%, 0.5) 0%, hsla(0, 0%, 100%, 0) 100%), -webkit-repeating-radial-gradient(50% 50%, 100% 100%, hsla(0, 0%, 0%, 0) 0%, hsla(0, 0%, 0%, 0) 3%, hsla(0, 0%, 0%, 0.1) 3.5%), -webkit-repeating-radial-gradient(50% 50%, 100% 100%, hsla(0, 0%, 100%, 0) 0%, hsla(0, 0%, 100%, 0) 6%, hsla(0, 0%, 100%, 0.1) 7.5%), -webkit-repeating-radial-gradient(50% 50%, 100% 100%, hsla(0, 0%, 100%, 0) 0%, hsla(0, 0%, 100%, 0) 1.2%, hsla(0, 0%, 100%, 0.2) 2.2%), -webkit-radial-gradient(50% 50%, 200% 50%, hsla(0, 0%, 90%, 1) 5%, hsla(0, 0%, 85%, 1) 30%, hsla(0, 0%, 60%, 1) 100%);
-}
-
-img {
-  filter: brightness(40%);
-  width: inherit;
-  height: inherit;
 }

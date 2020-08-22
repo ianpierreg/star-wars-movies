@@ -1,25 +1,22 @@
 import React, { useState, useEffect } from 'react';
-import '../stylesheets/cards.scss'
+import '../assets/stylesheets/cards.scss'
 import PropTypes from 'prop-types';
 import MovieTitle from './movie_title';
 import { useStore } from 'react-context-hook'
 
 const Card = ({ dat }) => {
   const data = { ...dat }
-  const [selected, setSelected] = useStore('selected')
-  const [rightOnes] = useStore('rightOnes')
   const [clicked, setClicked] = useState(false)
   const [className, setClassName] = useState('')
+  const [selected, setSelected] = useStore('selected')
+  const [rightOnes] = useStore('rightOnes')
 
-  useEffect(() => {
-    setClassName(classes())
-  }, [clicked])
-
+  useEffect(() => {setClassName(classes())}, [clicked])
 
   const setMeAsSelected = () => {
     const { firstSelected, secondSelected } = selected
     const { id, episode_id: episodeId } = data
-
+    if(rightOnes.includes(episodeId)) return
     let itemsSelected =  {
       firstSelected: { id: -1, episodeId: -1 },
       secondSelected: { id: -1, episodeId: -1 }
@@ -52,7 +49,7 @@ const Card = ({ dat }) => {
   }
 
   return (
-    <div className={className} onClick={() => setMeAsSelected(true)}>
+    <div className={className} onClick={setMeAsSelected}>
       <div className='content'>
         <div className='front metal'>
           <div className='module'>

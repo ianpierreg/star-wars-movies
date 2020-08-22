@@ -1,0 +1,53 @@
+@import 'base';
+@import 'variables';
+
+.header {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-content: center;
+  font-size: 30px;
+  color: white;
+  height: 20vh;
+
+  .saber {
+    position: relative;
+    width: 35%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    img {
+      width: 100%;
+    }
+
+    .top-info {
+      position: absolute;
+      top: 45px;
+    }
+
+    .bottom-info {
+      position: absolute;
+      bottom: 45px;
+    }
+  }
+
+  .left-saber img {
+    transform: scale(-1, -1);
+  }
+
+  .title {
+    width: 30%;
+    top: 0;
+    left: 0;
+    right: 0;
+    color: black;
+    text-align: center;
+    font-family: 'Star Jedi', sans-serif;
+    font-weight: 700;
+    font-size: 40px;
+    text-shadow: 0 0 3px yellow, 0 0 3px yellow, 0 0 3px yellow, 0 0 3px yellow;
+  }
+}
+

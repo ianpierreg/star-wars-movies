@@ -1,5 +1,7 @@
 @import 'base';
 
+@import url(//db.onlinewebfonts.com/c/3ae7aaa2cf06b2c15d2beb4ef9450b92?family=ITC+Serif+Gothic);
+
 .movie-title {
   position: absolute;
   display: flex;
@@ -17,7 +19,9 @@
   }
 
   .movie-name {
-    font-size: 20px;
-    text-shadow: 0 0 1px yellow, 0 0 1px yellow, 0 0 1px yellow, 0 0 1px yellow;
+    font-size: 15px;
+    text-transform: uppercase;
+    font-family: 'ITC Serif Gothic', serif;
+    color: white;
   }
 }

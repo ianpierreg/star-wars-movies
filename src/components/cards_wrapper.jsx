@@ -3,6 +3,9 @@ import '../stylesheets/cards.scss'
 import PropTypes from 'prop-types';
 import Card from "./card";
 import images from "../helpers/images_loader";
+import shuffleArray from "../helpers/array";
+import giveMeOneColor from "../helpers/color_random";
+import {LastSelectedContext} from "../store";
 
 const mockData = {
   "count": 6,
@@ -512,11 +515,20 @@ const mockData = {
 const CardsWrapper = () => {
   console.log(images)
   // logic to randomically apply images to cards
-  const { results } = mockData
+  let { results } = mockData
+  results = results.map(result => {
+    result.image = images.pop()
+    result.color = giveMeOneColor()
+    return result
+  })
+  results = shuffleArray(results.concat(results))
+
   return (
-    <div id="movies-wrapper">
-      {results.map(x => <Card data={{ ...x, image: images.pop() }} />)}
-    </div>
+    <LastSelectedContext>
+      <div id="movies-wrapper">
+        {results.map(result => <Card data={result} />)}
+      </div>
+    </LastSelectedContext>
   )
 }
 

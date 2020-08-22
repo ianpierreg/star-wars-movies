@@ -27,11 +27,7 @@
   transform-style: preserve-3d;
 }
 
-.tag-wrap {
-  filter: drop-shadow((-1px) 6px 3px rgba(50, 50, 0, 0.5));
-}
-
-.card:hover .content {
+.card.clicked .content {
   transform: rotateY(180deg);
   transition: transform 0.5s;
 }
@@ -50,44 +46,43 @@
   backface-visibility: hidden;
 }
 
-.module {
-  background: linear-gradient(rgba(0, 0, 0, 0.7));
 
-  position: relative;
+.back {
+  box-shadow: -1px 14px 28px 0px rgba(107, 107, 107, 1);
+  clip-path: polygon(20% 0%, 80% 0%, 100% 20%, 100% 100%, 80% 100%, 20% 100%, 0% 80%, 0 0);
+  color: white;
+  transform: rotateY(180deg);
+}
+
+.module {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(https://rock95.com/wp-content/uploads/2017/01/14137284401_4f06e9f8c6_z-400x200.jpg);
   color: black;
-  height: 100%;
-  width: 100%;
+  width: inherit;
+  height: inherit;
   clip-path: polygon(20% 0%, 80% 0%, 100% 0, 100% 80%, 80% 100%, 0 100%, 0% 80%, 0% 20%);
   border-radius: 5px;
   box-shadow: -1px 14px 28px 0px #6b6b6b;
-  display: flex;
-  justify-content: center;
-  align-items: flex-end;
+  box-sizing: border-box;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .moduletwo {
-  font-weight: 700;
-  padding: 10px 70px;
+  position: relative;
   box-sizing: border-box;
-  background: #03446A;
-  color: white;
-  height: 100%;
-  width: 100%;
-  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(https://rock95.com/wp-content/uploads/2017/01/14137284401_4f06e9f8c6_z-400x200.jpg);
+  color: black;
+  width: inherit;
+  height: inherit;
   clip-path: polygon(20% 0%, 80% 0%, 100% 20%, 100% 100%, 80% 100%, 20% 100%, 0% 80%, 0 0);
   border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  box-shadow: -1px 14px 28px 0px #6b6b6b;
 }
 
 p {
   font-size: 18px;
-}
-
-.back {
-  box-shadow: -1px 14px 28px 0px rgba(107, 107, 107, 1);
-  background: #03446A;
-  clip-path: polygon(20% 0%, 80% 0%, 100% 20%, 100% 100%, 80% 100%, 20% 100%, 0% 80%, 0 0);
-  color: white;
-  transform: rotateY(180deg);
 }
 
 .metal {

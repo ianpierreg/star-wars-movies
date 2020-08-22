@@ -1,6 +1,6 @@
 import React from 'react';
 import logo from './logo.svg';
-import './App.scss';
+import './stars_panel.scss';
 import CardsWrapper from "./components/cards_wrapper";
 
 function App() {

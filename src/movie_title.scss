@@ -1,0 +1,22 @@
+@import 'base';
+
+.movie-title {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  color: white;
+  padding-bottom: 12px;
+
+  .star, .wars {
+    font-family: 'Star Jedi', sans-serif;
+    font-size: 35px;
+    line-height: 35px;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .movie-name {
+    font-size: 16px;
+  }
+}

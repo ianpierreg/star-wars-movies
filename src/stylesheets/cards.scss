@@ -10,8 +10,8 @@
 }
 
 .card {
-  width: 33%;
-  height: 200px;
+  width: 25%;
+  height: 20%;
   perspective: 1000px;
   filter: drop-shadow(4px 4px 1px rgba(50, 50, 0, 0.5));
   display: flex;
@@ -96,7 +96,7 @@ p {
 }
 
 img {
-  filter: brightness(70%);
-  width: 400px;
-  height: 200px;
+  filter: brightness(40%);
+  width: inherit;
+  height: inherit;
 }

@@ -1,5 +1,5 @@
 import React from 'react';
-import '../cards.scss'
+import '../stylesheets/cards.scss'
 import PropTypes from 'prop-types';
 import MovieTitle from "./movie_title";
 

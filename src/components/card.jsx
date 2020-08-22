@@ -4,34 +4,44 @@ import PropTypes from 'prop-types';
 import MovieTitle from './movie_title';
 import { useStore } from 'react-context-hook'
 
-const Card = ({ data }) => {
-  const [lastSelected, setLastSelected] = useStore('lastSelected')
+const Card = ({ dat }) => {
+  const data = { ...dat }
+  const [selected, setSelected] = useStore('selected')
+  const [rightOnes] = useStore('rightOnes')
   const [clicked, setClicked] = useState(false)
   const [className, setClassName] = useState('')
 
   useEffect(() => {
-    if (!clicked) {
-      setClassName(classes())
-    } else {
-      const { episode_id: episodeId } = data
-      if(lastSelected === -1) {
-        setLastSelected(episodeId)
-        setClassName(classes())
-      } else if (lastSelected === episodeId) {
-        setClassName(classes())
-      } else {
-        setLastSelected(-1)
-      }
-    }
+    setClassName(classes())
   }, [clicked])
 
 
+  const setMeAsSelected = () => {
+    const { firstSelected, secondSelected } = selected
+    const { id, episode_id: episodeId } = data
+
+    let itemsSelected =  {
+      firstSelected: { id: -1, episodeId: -1 },
+      secondSelected: { id: -1, episodeId: -1 }
+    }
+    if ((firstSelected.id === -1 && secondSelected.id === -1) || (firstSelected.id !== -1 && secondSelected.id !== -1)) {
+      itemsSelected = { ...itemsSelected, firstSelected: { id, episodeId }}
+    } else if (firstSelected.id !== -1 && secondSelected.id === -1) {
+      itemsSelected = { firstSelected, secondSelected: { id, episodeId }}
+    }
+
+    setSelected(itemsSelected)
+  }
+
   useEffect(() => {
-    console.log('ll', lastSelected)
-    if (lastSelected === -1) {
+    const { firstSelected, secondSelected } = selected
+    const { id, episode_id: episodeId } = data
+    if (firstSelected.id === id || secondSelected.id === id || rightOnes.includes(episodeId)) {
+      setClicked(true)
+    } else {
       setClicked(false)
     }
-  }, [lastSelected])
+  }, [selected])
 
 
   const classes = () => {
@@ -41,7 +51,7 @@ const Card = ({ data }) => {
   }
 
   return (
-    <div className={className} onClick={() => setClicked(true)}>
+    <div className={className} onClick={() => setMeAsSelected(true)}>
       <div className='content'>
         <div className='front metal'>
           <div className='module'>

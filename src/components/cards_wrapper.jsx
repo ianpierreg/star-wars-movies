@@ -1,11 +1,11 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import '../stylesheets/cards.scss'
 import PropTypes from 'prop-types';
 import Card from "./card";
 import images from "../helpers/images_loader";
 import shuffleArray from "../helpers/array";
 import giveMeOneColor from "../helpers/color_random";
-import {LastSelectedContext} from "../store";
+import { useStore } from "react-context-hook";
 
 const mockData = {
   "count": 6,
@@ -513,22 +513,50 @@ const mockData = {
   ]
 }
 const CardsWrapper = () => {
-  console.log(images)
+  const [selected] = useStore('selected')
+  const [rightOnes, setRightOnes] = useStore('rightOnes')
+
+
   // logic to randomically apply images to cards
   let { results } = mockData
+
+
   results = results.map(result => {
-    result.image = images.pop()
-    result.color = giveMeOneColor()
-    return result
+    const newResult = { ...result }
+    newResult.image = images.pop()
+    newResult.color = giveMeOneColor()
+    return newResult
   })
-  results = shuffleArray(results.concat(results))
+
+  results = results.concat(results)
+
+  results = results.map((result, index) => {
+    const newResult = { ...result }
+    newResult.id = index
+    return newResult
+  })
+
+  results = shuffleArray(results)
+
+  const [movies, setMovies] = useState(results)
+  useEffect(() => {
+    const { firstSelected, secondSelected } = selected
+    console.log('selected', selected)
+    if (firstSelected.episodeId === secondSelected.episodeId && firstSelected.episodeId !== -1){
+      console.log('rot', rightOnes, firstSelected.episodeId)
+      setRightOnes([ ...rightOnes, firstSelected.episodeId])
+    }
+  }, [selected])
+
+
+  useEffect(() => {
+    console.log('ro', rightOnes)
+   }, [rightOnes])
 
   return (
-    <LastSelectedContext>
-      <div id="movies-wrapper">
-        {results.map(result => <Card data={result} />)}
-      </div>
-    </LastSelectedContext>
+    <div id="movies-wrapper">
+      {movies.map(result => <Card dat={result} key={result.id} />)}
+    </div>
   )
 }
 

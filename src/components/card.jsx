@@ -27,6 +27,7 @@ const Card = ({ dat }) => {
     if ((firstSelected.id === -1 && secondSelected.id === -1) || (firstSelected.id !== -1 && secondSelected.id !== -1)) {
       itemsSelected = { ...itemsSelected, firstSelected: { id, episodeId }}
     } else if (firstSelected.id !== -1 && secondSelected.id === -1) {
+      if (firstSelected.id === id) return
       itemsSelected = { firstSelected, secondSelected: { id, episodeId }}
     }
 

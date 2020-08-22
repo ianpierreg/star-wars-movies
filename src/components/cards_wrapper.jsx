@@ -2,6 +2,7 @@ import React from 'react';
 import '../cards.scss'
 import PropTypes from 'prop-types';
 import Card from "./card";
+import images from "../helpers/images_loader";
 
 const mockData = {
   "count": 6,
@@ -509,11 +510,12 @@ const mockData = {
   ]
 }
 const CardsWrapper = () => {
-
+  console.log(images)
   // logic to randomically apply images to cards
+  const { results } = mockData
   return (
     <div id="movies-wrapper">
-      {mockData.results.map(x => <Card data={x} />)}
+      {results.map(x => <Card data={{ ...x, image: images.pop() }} />)}
     </div>
   )
 }

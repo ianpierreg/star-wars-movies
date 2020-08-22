@@ -6,6 +6,21 @@ html {
   overflow: hidden;
 }
 
+#title {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  color: black;
+  text-align: center;
+  font-family: 'Star Jedi', sans-serif;
+  font-weight: 700;
+  font-size: 50px;
+  letter-spacing: 10px;
+  padding-left: 10px;
+  text-shadow: 0 0 3px yellow, 0 0 3px yellow, 0 0 3px yellow, 0 0 3px yellow;
+}
+
 .star-wars-font {
-  font-family: 'Star Jedi', sans;
+  font-family: 'Star Jedi', sans-serif;
 }

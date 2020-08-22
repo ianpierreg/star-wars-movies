@@ -10,13 +10,8 @@ function App() {
       <div id='stars2'></div>
       <div id='stars3'></div>
       <div id='title'>
-        <span>
           STAR WARS
-        </span>
-        <br/>
-        <span>
-          MOVIES
-        </span>
+          Movies
       </div>
       <CardsWrapper />
   </div>);

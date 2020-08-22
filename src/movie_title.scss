@@ -4,7 +4,8 @@
   position: absolute;
   display: flex;
   flex-direction: column;
-  color: white;
+  color: black;
+  text-shadow: 0 0 2px yellow, 0 0 2px yellow, 0 0 2px yellow, 0 0 2px yellow;
   padding-bottom: 12px;
 
   .star, .wars {
@@ -17,6 +18,7 @@
   }
 
   .movie-name {
-    font-size: 16px;
+    font-size: 20px;
+    text-shadow: 0 0 1px yellow, 0 0 1px yellow, 0 0 1px yellow, 0 0 1px yellow;
   }
 }

@@ -54,23 +54,3 @@
     box-shadow: $shadows-big;
   }
 }
-
-#title {
-  position: absolute;
-  top: 5%;
-  left: 0;
-  right: 0;
-  color: #FFF;
-  text-align: center;
-  font-family: 'lato',sans-serif;
-  font-weight: 700;
-  font-size: 50px;
-  letter-spacing: 10px;
-  padding-left: 10px;
-
-  span {
-    background: #FFE81F;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-  }
-}

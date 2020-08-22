@@ -10,8 +10,7 @@ const Card = ({ data }) => {
       <div className='content'>
         <div className='front metal'>
           <div className='module'>
-            <img alt=''
-                 src='https://college.lclark.edu/live/image/gid/530/width/1260/height/630/crop/1/71211_star_wars.jpg'/>
+            <img alt='' src={data.image} />
             <MovieTitle movieTitle={data.title} />
           </div>
         </div>

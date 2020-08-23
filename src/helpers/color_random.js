@@ -7,6 +7,6 @@ const colors = [
   { textShadow: repeatStyle('#E5291E') }
 ]
 
-const giveMeOneColor = () => colors[Math.floor(Math.random() * 4)]
+const giveMeOneColor = () => colors[Math.floor(Math.random() * colors.length)]
 
 export default giveMeOneColor

@@ -4,3 +4,14 @@
 $shadows-small: multiple-box-shadow(2000);
 $shadows-medium: multiple-box-shadow(1500);
 $shadows-big: multiple-box-shadow(1000);
+
+// keyframes
+@keyframes blinker {
+  0% { opacity: 0.2 }
+  20% { opacity: 0.4 }
+  40% { opacity: 0.6 }
+  60% { opacity: 0.8 }
+  80% { opacity: 0.6 }
+  90% { opacity: 0.4 }
+  100% { opacity: 0.2 }
+}

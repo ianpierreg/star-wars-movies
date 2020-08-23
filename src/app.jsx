@@ -1,31 +1,19 @@
 import React from 'react'
 import './assets/stylesheets/stars_panel.scss'
-import CardsWrapper from "./components/cards_wrapper"
+import CardsWrapper from './components/cards_wrapper'
 import { withStore } from 'react-context-hook'
-import Header from './components/header'
+import GameInfo from './components/game_info'
+import initialStore from './helpers/initial_store'
 
 
-function App() {
-    return (
-        <div>
-          <div id='stars'/>
-          <div id='stars2'/>
-          <div id='stars3'/>
-          <Header />
-          <CardsWrapper />
-        </div>
-    )
-}
+const App = () => (
+  <div>
+    <div id='stars'/>
+    <div id='stars2'/>
+    <div id='stars3'/>
+    <GameInfo />
+    <CardsWrapper />
+  </div>
+)
 
-const initialValue = {
-  selected: {
-    firstSelected: { id: -1, episodeId: -1 },
-    secondSelected: { id: -1, episodeId: -1 }
-  },
-  bestTime: 0,
-  maxPoints: 0,
-  started: false,
-  rightOnes: []
-}
-
-export default withStore(App, initialValue, { })
+export default withStore(App, initialStore, { })

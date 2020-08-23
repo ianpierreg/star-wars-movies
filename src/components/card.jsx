@@ -1,9 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react'
 import '../assets/stylesheets/cards.scss'
-import PropTypes from 'prop-types';
-import MovieTitle from './movie_title';
 import { useStore } from 'react-context-hook'
-import giveMeOneColor from "../helpers/color_random";
+import initialStore from '../helpers/initial_store'
 
 const Card = ({ dat }) => {
   const data = { ...dat }
@@ -26,21 +24,25 @@ const Card = ({ dat }) => {
   }, [started])
 
   const setMeAsSelected = () => {
-    const { firstSelected, secondSelected } = selected
     const { id, episode_id: episodeId } = data
     if(rightOnes.includes(episodeId)) return
-    let itemsSelected =  {
-      firstSelected: { id: -1, episodeId: -1 },
-      secondSelected: { id: -1, episodeId: -1 }
-    }
-    if ((firstSelected.id === -1 && secondSelected.id === -1) || (firstSelected.id !== -1 && secondSelected.id !== -1)) {
-      itemsSelected = { ...itemsSelected, firstSelected: { id, episodeId }}
-    } else if (firstSelected.id !== -1 && secondSelected.id === -1) {
+    const { firstSelected, secondSelected } = selected
+    let itemsStoreTemplate  =  { ...initialStore.selected }
+
+    console.log('dd', itemsStoreTemplate)
+    const noCardsSelected = firstSelected.id === -1 && secondSelected.id === -1
+    const firstCardSelected = firstSelected.id !== -1 && secondSelected.id === -1
+    const bothCardsSelected = firstSelected.id !== -1 && secondSelected.id !== -1
+
+    if (noCardsSelected || bothCardsSelected) {
+      itemsStoreTemplate = { ...itemsStoreTemplate, firstSelected: { id, episodeId }}
+    } else if (firstCardSelected) {
       if (firstSelected.id === id) return
-      itemsSelected = { firstSelected, secondSelected: { id, episodeId }}
+      itemsStoreTemplate = { firstSelected, secondSelected: { id, episodeId }}
     }
 
-    setSelected(itemsSelected)
+    console.log(itemsStoreTemplate)
+    setSelected(itemsStoreTemplate)
   }
 
   useEffect(() => {
@@ -77,8 +79,10 @@ const Card = ({ dat }) => {
         </div>
         <div className='back metal'>
           <div className='moduletwo'>
-            <img alt='alguma imagem do star wars' src={data.image} />
-            <MovieTitle movieTitle={data.title} />
+            <img alt={data.title} src={data.image} />
+            <div className="movie-title">
+              <div className="movie-name">{data.title}</div>
+            </div>
           </div>
         </div>
       </div>

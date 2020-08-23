@@ -3,10 +3,8 @@ import '../assets/stylesheets/header.scss'
 import blueSaber from '../assets/images/blueSaber.png'
 import greenSaber from '../assets/images/greenSaber.png'
 import { useStore } from 'react-context-hook'
-import useGameController from './game_controller'
 
-const GameInfo = () => {
-  const [seconds, restart] = useGameController()
+const GameInfo = ({ seconds, restart }) => {
   const [rightOnes] = useStore('rightOnes')
   const [bestTime] = useStore('bestTime')
   const [gameSize] = useStore('gameSize')

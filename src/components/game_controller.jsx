@@ -1,23 +1,19 @@
 import React, { useEffect, useState } from 'react';
 import '../assets/stylesheets/cards.scss'
-import PropTypes from 'prop-types';
-import Card from "./card";
-import images from "../helpers/images_loader";
-import shuffleArray from "../helpers/array";
-import giveMeOneColor from "../helpers/color_random";
-import { useStore, useSetStoreValue } from "react-context-hook";
-import initialStore from "../helpers/initial_store";
+import PropTypes from 'prop-types'
+import { useStore, useSetStoreValue } from 'react-context-hook'
+import initialStore from '../helpers/initial_store'
 
-const useGameController = () => {
+const useGameController = (cardsLength) => {
   const [seconds, setSeconds] = useState(0)
   const [timer, setTimer] = useState(null)
   const [selected, setSelected] = useStore('selected')
   const [rightOnes, setRightOnes] = useStore('rightOnes')
   const [started, setStarted] = useStore('started')
   const [bestTime, setBestTime] = useStore('bestTime')
-  const [gameSize, setGameSizes] = useStore('gameSize')
+  const [gameSize, setGameSize] = useStore('gameSize')
 
-
+  useEffect(() => { setGameSize(cardsLength) }, [])
   useEffect(() => {
     const { firstSelected, secondSelected } = selected
     if(firstSelected.episodeId === secondSelected.episodeId && firstSelected.episodeId !== -1) {

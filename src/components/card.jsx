@@ -25,6 +25,7 @@ const Card = ({ dat }) => {
 
   const setMeAsSelected = () => {
     const { id, episode_id: episodeId } = data
+    console.log(rightOnes)
     if(rightOnes.includes(episodeId)) return
     const { firstSelected, secondSelected } = selected
     let itemsStoreTemplate  =  { ...initialStore.selected }

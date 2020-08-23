@@ -62,11 +62,13 @@ const Card = ({ dat }) => {
   }
 
   return (
-    <div className={className} onClick={started ? setMeAsSelected : () => {}} style={{ marginLeft: data.id*5+'px'}}>
+    <div className={className} onClick={started ? setMeAsSelected : () => {}}>
       <div className='content'>
         <div className='front metal'>
           <div className='module'>
             <div id='stars'/>
+            <div id='stars2'/>
+            <div id='stars3'/>
             <div className="name-wrapper">
               <div className="star" style={data.color}>STAR</div>
               <div className="wars" style={data.color}>WARS</div>

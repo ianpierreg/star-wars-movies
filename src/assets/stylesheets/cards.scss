@@ -3,30 +3,28 @@
 .movies-wrapper {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-around;
-  overflow-x: hidden;
+  justify-content: flex-start;
+  overflow: hidden;
   height: 80vh;
   padding: 50px 30px;
   box-sizing: border-box;
 }
 
 .card {
-  min-width: 25%;
-  height: 33%;
+  min-width: 300px;
+  height: 150px;
   perspective: 1000px;
   filter: drop-shadow(4px 4px 1px rgba(50, 50, 0, 0.5));
   display: flex;
-  bottom: 0;
+  opacity: 0;
   justify-content: center;
   align-items: center;
-  transition: all 0.3s ease-out;
-  position: absolute;
 }
 
 .card.show {
-  transition: all 1s ease-out;
-  margin: 0 !important;
-  position: relative;
+  animation: cardIn 0.3s ease;
+  //transition: opacity 0.3s ease-in;
+  opacity: 1;
 }
 
 .content {
@@ -121,4 +119,21 @@
   display: flex;
   justify-content: center;
   text-align: center;
+}
+
+@keyframes cardIn {
+  0% { opacity: 0 }
+  5% { opacity: 0.1 }
+  10% { opacity: 0.2 }
+  15% { opacity: 0.3 }
+  20% { opacity: 0.4 }
+  25% { opacity: 0.2 }
+  30% { opacity: 0.4 }
+  35% { opacity: 0.3 }
+  40% { opacity: 0.2 }
+  50% { opacity: 0.4 }
+  60% { opacity: 0.6 }
+  80% { opacity: 0.4 }
+  90% { opacity: 0.7 }
+  100% { opacity: 1 }
 }

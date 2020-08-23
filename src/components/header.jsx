@@ -7,7 +7,7 @@ import { useStore } from "react-context-hook";
 const Header = () => {
   const [rightOnes, setRightOnes] = useStore('rightOnes')
   const [bestTime, setBestTime] = useStore('bestTime')
-  const [maxPoints, setMaxPoints] = useStore('maxPoints')
+  const [maxPoints] = useStore('maxPoints')
   const [selected, setSelected] = useStore('selected')
   const [seconds, setSeconds] = useState(0)
   const [started, setStarted] = useStore('started')
@@ -32,7 +32,7 @@ const Header = () => {
       firstSelected: { id: -1, episodeId: -1 },
       secondSelected: { id: -1, episodeId: -1 }
     })
-    setSeconds(0)
+    // setSeconds(0)
   }
 
   useEffect(() => {
@@ -59,13 +59,13 @@ const Header = () => {
   }
 
   const buttonClass = () => {
-    const newClass =
+    const newClass = 'main-button'
     if(started) {
-      if (rightOnes.length === maxPoints) return 'main-buttoblue'
-      return 'red'
+      if (rightOnes.length === maxPoints) return `${newClass} blue`
+      return `${newClass} red`
     }
 
-    return 'yellow'
+    return `${newClass} yellow`
   }
 
   return (
@@ -74,9 +74,7 @@ const Header = () => {
         <img src={blueSaber} alt="sabre azul"/>
         <span className="top-info">Seu tempo: {rightOnes.length === maxPoints ? 0 :   seconds} segundos</span>
       </div>
-      <div className='title'>
-        <button onClick={restart} className={buttonClass()}>{buttonText()}</button>
-      </div>
+      <button onClick={restart} className={buttonClass()}>{buttonText()}</button>
       <div className="saber right-saber">
         <img src={greenSaber} alt="sabre verde"/>
         <span className="top-info">Melhor tempo: {bestTime} segundos</span>

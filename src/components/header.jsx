@@ -17,15 +17,19 @@ const Header = () => {
     }, 1000);
   }, [])
 
+
+  const restart = () => {
+    setRightOnes([])
+    setSelected({
+      firstSelected: { id: -1, episodeId: -1 },
+      secondSelected: { id: -1, episodeId: -1 }
+    })
+    setSeconds(0)
+  }
   useEffect(() => {
     if(rightOnes.length === maxPoints) {
       if (seconds < bestTime || bestTime === 0) setBestTime(seconds)
-      setRightOnes([])
-      setSelected({
-        firstSelected: { id: -1, episodeId: -1 },
-        secondSelected: { id: -1, episodeId: -1 }
-      })
-      setSeconds(0)
+      restart()
     }
   }, [rightOnes])
 
@@ -34,16 +38,15 @@ const Header = () => {
     <div className="header">
       <div className="saber left-saber">
         <img src={blueSaber} alt="blue-saber"/>
-        <span className="top-info">Pontuação: {rightOnes.length}</span>
-        <span className="bottom-info">Nivel: Fácil</span>
+        <span className="top-info">Seu tempo: {seconds} segundos</span>
       </div>
       <div className='title'>
         sua memória, teste
+        <button onClick={restart}>Reiniciar</button>
       </div>
       <div className="saber right-saber">
         <img src={greenSaber} alt="green-saber"/>
-        <span className="top-info">{seconds}s</span>
-        <span className="bottom-info">Melhor tempo: {bestTime}s</span>
+        <span className="top-info">Melhor tempo: {bestTime} segundos</span>
       </div>
     </div>
 

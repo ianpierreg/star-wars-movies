@@ -23,13 +23,10 @@
     }
 
     .top-info {
+      font-family: 'ITC Serif Gothic', serif;
+      text-transform: uppercase;
       position: absolute;
-      top: 45px;
-    }
-
-    .bottom-info {
-      position: absolute;
-      bottom: 45px;
+      top: 30px;
     }
   }
 
@@ -38,6 +35,10 @@
   }
 
   .title {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     width: 30%;
     top: 0;
     left: 0;
@@ -48,6 +49,18 @@
     font-weight: 700;
     font-size: 40px;
     text-shadow: 0 0 3px yellow, 0 0 3px yellow, 0 0 3px yellow, 0 0 3px yellow;
+
+    button {
+      width: 150px;
+      height: 40px;
+      background: yellow;
+      border: none;
+      border-radius: 5px;
+      font-weight: 700;
+      font-size: 20px;
+      font-family: 'ITC Serif Gothic', serif;
+      text-transform: uppercase;
+    }
   }
 }
 

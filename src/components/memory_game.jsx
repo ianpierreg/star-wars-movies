@@ -4,7 +4,7 @@ import CardsWrapper from './cards_wrapper'
 import { withStore } from 'react-context-hook'
 import GameInfo from './game_info'
 import initialStore from '../helpers/initial_store'
-
+import AudioPlayer from './audio_player'
 
 const MemoryGame = () => (
   <div>
@@ -12,6 +12,7 @@ const MemoryGame = () => (
     <div id='stars2'/>
     <div id='stars3'/>
     <GameInfo />
+    <AudioPlayer />
     <CardsWrapper />
   </div>
 )

@@ -69,10 +69,10 @@ const Card = ({ dat }) => {
       <div className='content'>
         <div className='front metal'>
           <div className='module'>
-            <div id='stars'/>
-            <div id='stars2'/>
-            <div id='stars3'/>
             <div className="name-wrapper">
+              <div id='stars'/>
+              <div id='stars2'/>
+              <div id='stars3'/>
               <div className="star" style={data.color}>STAR</div>
               <div className="wars" style={data.color}>WARS</div>
             </div>

@@ -3,15 +3,27 @@ import '../assets/stylesheets/cards.scss'
 import PropTypes from 'prop-types';
 import MovieTitle from './movie_title';
 import { useStore } from 'react-context-hook'
+import giveMeOneColor from "../helpers/color_random";
 
 const Card = ({ dat }) => {
   const data = { ...dat }
   const [clicked, setClicked] = useState(false)
   const [className, setClassName] = useState('')
   const [selected, setSelected] = useStore('selected')
+  const [started] = useStore('started')
   const [rightOnes] = useStore('rightOnes')
 
   useEffect(() => {setClassName(classes())}, [clicked])
+
+  useEffect(() => {
+    if (!started) {
+      setClicked(false)
+      setClassName(classes())
+      return
+    }
+
+    setTimeout(() => setClassName(classes()), (data.id+1)*100)
+  }, [started])
 
   const setMeAsSelected = () => {
     const { firstSelected, secondSelected } = selected
@@ -43,23 +55,28 @@ const Card = ({ dat }) => {
 
 
   const classes = () => {
-    let newClass = 'card'
-    if(clicked) newClass = `${newClass} clicked`
-    return newClass
+    const newClasses = ['card']
+    if(started) newClasses.push('show')
+    if(clicked) newClasses.push('clicked')
+    return newClasses.join(' ')
   }
 
   return (
-    <div className={className} onClick={setMeAsSelected}>
+    <div className={className} onClick={started ? setMeAsSelected : () => {}} style={{ marginLeft: data.id*5+'px'}}>
       <div className='content'>
         <div className='front metal'>
           <div className='module'>
-
+            <div id='stars'/>
+            <div className="name-wrapper">
+              <div className="star" style={data.color}>STAR</div>
+              <div className="wars" style={data.color}>WARS</div>
+            </div>
           </div>
         </div>
         <div className='back metal'>
           <div className='moduletwo'>
-            <img alt='' src={data.image} />
-            <MovieTitle movieTitle={data.title} color={data.color} />
+            <img alt='alguma imagem do star wars' src={data.image} />
+            <MovieTitle movieTitle={data.title} />
           </div>
         </div>
       </div>

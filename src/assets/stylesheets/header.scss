@@ -12,7 +12,7 @@
 
   .saber {
     position: relative;
-    width: 35%;
+    width: 40%;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -30,7 +30,7 @@
     }
   }
 
-  .left-saber img {
+  .right-saber img {
     transform: scale(-1, -1);
   }
 
@@ -39,7 +39,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 30%;
+    width: 20%;
     top: 0;
     left: 0;
     right: 0;

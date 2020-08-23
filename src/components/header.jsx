@@ -10,15 +10,23 @@ const Header = () => {
   const [maxPoints, setMaxPoints] = useStore('maxPoints')
   const [selected, setSelected] = useStore('selected')
   const [seconds, setSeconds] = useState(0)
+  const [started, setStarted] = useStore('started')
 
   useEffect(() => {
-    setInterval(() => {
-      setSeconds(seconds => seconds + 1);
-    }, 1000);
-  }, [])
+    let interval = null
+    if (started) {
+      interval = setInterval(() => {
+        setSeconds(seconds => seconds + 1)
+      }, 1000)
+    } else if (!started && seconds !== 0) {
+      clearInterval(interval)
+    }
+    return () => clearInterval(interval);
+  }, [started])
 
 
   const restart = () => {
+    setStarted(!started)
     setRightOnes([])
     setSelected({
       firstSelected: { id: -1, episodeId: -1 },
@@ -26,26 +34,51 @@ const Header = () => {
     })
     setSeconds(0)
   }
+
   useEffect(() => {
     if(rightOnes.length === maxPoints) {
       if (seconds < bestTime || bestTime === 0) setBestTime(seconds)
-      restart()
+      // setSeconds(0)
+      // setStarted(false)
+      // setRightOnes([])
+      // setSelected({
+      //   firstSelected: { id: -1, episodeId: -1 },
+      //   secondSelected: { id: -1, episodeId: -1 }
+      // })
     }
   }, [rightOnes])
 
 
+  const buttonText = () => {
+    if(started) {
+      if (rightOnes.length === maxPoints) return 'Embaralhar'
+      return 'Desistir'
+    }
+
+    return 'Iniciar'
+  }
+
+  const buttonClass = () => {
+    const newClass =
+    if(started) {
+      if (rightOnes.length === maxPoints) return 'main-buttoblue'
+      return 'red'
+    }
+
+    return 'yellow'
+  }
+
   return (
     <div className="header">
       <div className="saber left-saber">
-        <img src={blueSaber} alt="blue-saber"/>
-        <span className="top-info">Seu tempo: {seconds} segundos</span>
+        <img src={blueSaber} alt="sabre azul"/>
+        <span className="top-info">Seu tempo: {rightOnes.length === maxPoints ? 0 :   seconds} segundos</span>
       </div>
       <div className='title'>
-        sua memória, teste
-        <button onClick={restart}>Reiniciar</button>
+        <button onClick={restart} className={buttonClass()}>{buttonText()}</button>
       </div>
       <div className="saber right-saber">
-        <img src={greenSaber} alt="green-saber"/>
+        <img src={greenSaber} alt="sabre verde"/>
         <span className="top-info">Melhor tempo: {bestTime} segundos</span>
       </div>
     </div>

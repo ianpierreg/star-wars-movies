@@ -24,6 +24,7 @@ const initialValue = {
   },
   bestTime: 0,
   maxPoints: 0,
+  started: false,
   rightOnes: []
 }
 

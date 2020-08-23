@@ -11,13 +11,22 @@
 }
 
 .card {
-  width: 25%;
+  min-width: 25%;
   height: 33%;
   perspective: 1000px;
   filter: drop-shadow(4px 4px 1px rgba(50, 50, 0, 0.5));
   display: flex;
+  bottom: 0;
   justify-content: center;
   align-items: center;
+  transition: all 0.3s ease-out;
+  position: absolute;
+}
+
+.card.show {
+  transition: all 1s ease-out;
+  margin: 0 !important;
+  position: relative;
 }
 
 .content {
@@ -26,9 +35,7 @@
   height: 80%;
   transition: transform 0.4s;
   transform-style: preserve-3d;
-  animation: flashflip 4s;
 }
-
 
 .card.clicked .content {
   transform: rotateY(180deg);
@@ -58,10 +65,13 @@
 }
 
 .module {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.4)), url(https://rock95.com/wp-content/uploads/2017/01/14137284401_4f06e9f8c6_z-400x200.jpg);
-  color: black;
+  background: black;
   width: inherit;
   height: inherit;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   clip-path: polygon(20% 0%, 80% 0%, 100% 0, 100% 80%, 80% 100%, 0 100%, 0% 80%, 0% 20%);
   border-radius: 5px;
   box-shadow: -1px 14px 28px 0px #6b6b6b;
@@ -84,14 +94,9 @@
   box-shadow: -1px 14px 28px 0px #6b6b6b;
 
   img {
-    filter: brightness(40%);
     width: inherit;
     height: inherit;
   }
-}
-
-p {
-  font-size: 18px;
 }
 
 .metal {
@@ -99,13 +104,21 @@ p {
   background-image: -webkit-radial-gradient(50% 0%, 8% 50%, hsla(0, 0%, 100%, 0.5) 0%, hsla(0, 0%, 100%, 0) 100%), -webkit-radial-gradient(50% 100%, 12% 50%, hsla(0, 0%, 100%, 0.6) 0%, hsla(0, 0%, 100%, 0) 100%), -webkit-radial-gradient(0% 50%, 50% 7%, hsla(0, 0%, 100%, 0.5) 0%, hsla(0, 0%, 100%, 0) 100%), -webkit-radial-gradient(100% 50%, 50% 5%, hsla(0, 0%, 100%, 0.5) 0%, hsla(0, 0%, 100%, 0) 100%), -webkit-repeating-radial-gradient(50% 50%, 100% 100%, hsla(0, 0%, 0%, 0) 0%, hsla(0, 0%, 0%, 0) 3%, hsla(0, 0%, 0%, 0.1) 3.5%), -webkit-repeating-radial-gradient(50% 50%, 100% 100%, hsla(0, 0%, 100%, 0) 0%, hsla(0, 0%, 100%, 0) 6%, hsla(0, 0%, 100%, 0.1) 7.5%), -webkit-repeating-radial-gradient(50% 50%, 100% 100%, hsla(0, 0%, 100%, 0) 0%, hsla(0, 0%, 100%, 0) 1.2%, hsla(0, 0%, 100%, 0.2) 2.2%), -webkit-radial-gradient(50% 50%, 200% 50%, hsla(0, 0%, 90%, 1) 5%, hsla(0, 0%, 85%, 1) 30%, hsla(0, 0%, 60%, 1) 100%);
 }
 
-@keyframes flashflip {
-  0% {
-    opacity:1;
-    transform: rotateY(180deg);
-  }
-  100% {
-    opacity:1;
-    transform: rotateY(180deg);
-  }
+.name-wrapper {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 14px;
+}
+.star, .wars {
+  color: black;
+  font-family: 'Star Jedi', sans-serif;
+  font-size: 55px;
+  line-height: 55px;
+  display: flex;
+  justify-content: center;
+  text-align: center;
 }

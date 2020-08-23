@@ -3,21 +3,15 @@
 .movie-title {
   position: absolute;
   display: flex;
+  background: rgba(0, 0, 0, 0.4);
   flex-direction: column;
   color: black;
-  padding-bottom: 12px;
+  padding: 15px 0;
+  width: 100%;
 
-  .star, .wars {
-    font-family: 'Star Jedi', sans-serif;
-    font-size: 35px;
-    line-height: 35px;
-    display: flex;
-    justify-content: center;
-    text-align: center;
-  }
 
   .movie-name {
-    font-size: 15px;
+    font-size: 20px;
     text-transform: uppercase;
     font-family: 'ITC Serif Gothic', serif;
     color: white;

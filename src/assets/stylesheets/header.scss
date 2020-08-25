@@ -1,21 +1,25 @@
 @import 'base';
 
 .header {
-  display: flex;
-  width: 100%;
-  justify-content: space-between;
-  align-content: center;
-  font-size: 25px;
-  color: white;
-  height: 15vh;
+display: flex;
+width: 100%;
+justify-content: space-between;
+align-content: center;
+font-size: 25px;
+color: white;
+height: 15%;
 
   .saber {
     position: relative;
-    width: 40%;
+    width: 45%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+
+    @include device-size(medium) {
+      width: 40%;
+    }
 
     img {
       width: 100%;
@@ -26,7 +30,52 @@
       text-transform: uppercase;
       color: wheat;
       position: absolute;
-      top: 20px;
+      top: 4.5vh;
+      width: 100%;
+      font-size: 1.5vw;
+      display: flex;
+
+      &:after {
+        content: 'segundos';
+        margin-left: 1%;
+      }
+
+      &.left {
+        justify-content: flex-end;
+        padding-right: 30%;
+      }
+
+      &.right {
+        justify-content: flex-start;
+        padding-left: 30%;
+      }
+
+      @include device-size(extra-large) {
+        font-size: 1.9vw;
+        top: 3vh;
+      }
+
+      @include device-size(large) {
+        font-size: 1.7vw;
+        top: 2.5vh;
+      }
+
+      @include device-size(medium) {
+        font-size: 2.4vw;
+        top: 1vh;
+
+        &:after {
+          content: ' s'
+        }
+      }
+
+      @include device-size(extra-small) {
+        font-size: 3.2vw;
+
+        &:after {
+          content: ' s'
+        }
+      }
     }
   }
 
@@ -34,17 +83,42 @@
     transform: scale(-1, -1);
   }
 
+  .main-button-wrapper {
+    width: 10%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    @include device-size(medium) {
+      width: 20%;
+    }
+
     .main-button {
-      width: 180px;
-      height: 50px;
       border: none;
       border-radius: 7px;
       font-weight: 700;
-      font-size: 25px;
+      padding: 0.5vw 1vw;
       font-family: 'ITC Serif Gothic', serif;
       text-transform: uppercase;
       align-self: center;
       cursor: pointer;
+      font-size: 1.5vw;
+
+      @include device-size(extra-large) {
+        font-size: 1.9vw;
+      }
+
+      @include device-size(large) {
+        font-size: 1.7vw;
+      }
+
+      @include device-size(medium) {
+        font-size: 2.7vw;
+      }
+
+      @include device-size(extra-small) {
+        font-size: 4vw;
+      }
 
       &.red {
         background: #E5291E;
@@ -61,5 +135,6 @@
         color: black;
       }
     }
-}
+  }
 
+}

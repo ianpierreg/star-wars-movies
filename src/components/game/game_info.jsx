@@ -27,12 +27,14 @@ const GameInfo = ({ seconds, restart }) => {
     <div className="header">
       <div className="saber left-saber">
         <img src={blueSaber} alt="sabre azul"/>
-        <span className="top-info">Seu tempo: {seconds} segundos</span>
+        <span className="top-info left">Seu tempo: {seconds}</span>
       </div>
-      <button onClick={restart} className={buttonClass()}>{buttonText()}</button>
+      <div className="main-button-wrapper">
+        <button onClick={restart} className={buttonClass()}>{buttonText()}</button>
+      </div>
       <div className="saber right-saber">
         <img src={greenSaber} alt="sabre verde"/>
-        <span className="top-info">Melhor tempo: {bestTime} segundos</span>
+        <span className="top-info right">Melhor tempo: {bestTime}</span>
       </div>
     </div>
   )

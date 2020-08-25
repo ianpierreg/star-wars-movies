@@ -2,28 +2,19 @@
 @import url(//db.onlinewebfonts.com/c/3ae7aaa2cf06b2c15d2beb4ef9450b92?family=ITC+Serif+Gothic);
 @import 'variables';
 
-:root {
-  --transition-delay-ms: 2s;
-}
-
 html {
-  height: 100vh;
-  width: 100vw;
+  height: 100%;
+  width: 100%;
   background: radial-gradient(ellipse at bottom, #1c0d21 0%, #090A0F 100%);
   overflow: hidden;
 }
 
 body {
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  height: 100%;
   overflow: hidden;
   margin: 0;
   padding: 0;
-}
-
-#root {
-  width: 100vw;
-  height: 100vh;
 }
 
 .star-wars-font {

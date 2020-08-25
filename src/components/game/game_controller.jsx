@@ -21,7 +21,7 @@ const useGameController = (cardsLength) => {
   useEffect(() => {
     const { firstSelected, secondSelected } = selected
     if(firstSelected.episodeId === secondSelected.episodeId && firstSelected.episodeId !== -1) {
-      setRightOnes([ ...rightOnes, firstSelected.episodeId])
+      setRightOnes([...rightOnes, firstSelected.episodeId])
     }
   }, [selected])
 

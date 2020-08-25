@@ -15,3 +15,25 @@ $shadows-big: multiple-box-shadow(1000);
   90% { opacity: 0.4 }
   100% { opacity: 0.2 }
 }
+
+
+//breakpoints to reponsive design
+$extra-small: "max-width: 575.98px";
+$small: "max-width: 767.98px";
+$medium: "max-width: 991.98px";
+$large: "max-width: 1199.98px";
+$extra-large: "max-width: 1500px";
+
+@mixin device-size($range) {
+  @if $range == extra-small {
+    @media ($extra-small) { @content; }
+  } @else if $range == small {
+    @media ($small) { @content; }
+  } @else if $range == medium {
+    @media ($medium) { @content; }
+  } @else if $range == large {
+    @media ($large) { @content; }
+  }  @else if $range == extra-large {
+    @media ($extra-large) { @content; }
+  }
+}

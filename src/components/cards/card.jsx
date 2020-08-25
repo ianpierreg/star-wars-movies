@@ -3,33 +3,27 @@ import '../../assets/stylesheets/cards.scss'
 import { useStore } from 'react-context-hook'
 import initialStore from '../../helpers/initial_store'
 
-const Card = ({ dat }) => {
-  const data = { ...dat }
+const Card = ({ card }) => {
   const [clicked, setClicked] = useState(false)
   const [className, setClassName] = useState('card hide')
   const [selected, setSelected] = useStore('selected')
   const [started] = useStore('started')
   const [rightOnes] = useStore('rightOnes')
-  const [selectedCardSound] = useState(new Audio('/sounds/cardSelection.mp3'))
 
   useEffect(() => {
-    if(clicked) selectedCardSound.play()
+    console.log('seteiclicked')
     setClassName(classes())
   }, [clicked])
 
-  useEffect(() => {
-    selectedCardSound.volume = 0.001
-  }, [])
+  useEffect(() => {}, [])
 
   useEffect(() => {
     if (!started) setClicked(false)
-
     setClassName(classes())
-    // setTimeout(() => setClassName(classes()), (data.id+1)*100)
   }, [started])
 
   const setMeAsSelected = () => {
-    const { id, episode_id: episodeId } = data
+    const { id, episode_id: episodeId } = card
     if(rightOnes.includes(episodeId)) return
     const { firstSelected, secondSelected } = selected
     let itemsStoreTemplate  =  { ...initialStore.selected }
@@ -49,8 +43,9 @@ const Card = ({ dat }) => {
 
   useEffect(() => {
     const { firstSelected, secondSelected } = selected
-    const { id, episode_id: episodeId } = data
+    const { id, episode_id: episodeId } = card
     const shouldSetClicked = firstSelected.id === id || secondSelected.id === id || rightOnes.includes(episodeId)
+    if (shouldSetClicked) console.log('setclicked')
     setClicked(shouldSetClicked)
   }, [selected])
 
@@ -71,16 +66,16 @@ const Card = ({ dat }) => {
               <div id='stars'/>
               <div id='stars2'/>
               <div id='stars3'/>
-              <div className="star" style={data.color}>STAR</div>
-              <div className="wars" style={data.color}>WARS</div>
+              <div className="star" style={card.color}>STAR</div>
+              <div className="wars" style={card.color}>WARS</div>
             </div>
           </div>
         </div>
         <div className='back metal'>
           <div className='moduletwo'>
-            <img alt={data.title} src={data.image} />
+            <img alt={card.title} src={card.image} />
             <div className="movie-title">
-              <div className="movie-name">{data.title}</div>
+              <div className="movie-name">{card.title}</div>
             </div>
           </div>
         </div>

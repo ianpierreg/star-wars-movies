@@ -5,11 +5,11 @@ import Card from './card'
 import usePrepareDeck from './prepare_deck'
 
 const CardsWrapper = ({ mockData }) => {
-  const movies = usePrepareDeck([...mockData.results ])
+  const cards = usePrepareDeck([...mockData.results])
 
   return (
     <div className="movies-wrapper">
-      {movies.map(result => <Card dat={result} key={result.id} />)}
+      {cards.map(card => <Card card={card} key={card.id} />)}
     </div>
   )
 }

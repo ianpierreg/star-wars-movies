@@ -1,4 +1,5 @@
 const initialStore = {
+  someCardClicked: false,
   selected: {
     firstSelected: { id: -1, episodeId: -1 },
     secondSelected: { id: -1, episodeId: -1 }

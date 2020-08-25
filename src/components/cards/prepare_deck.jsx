@@ -7,9 +7,9 @@ import { useStore } from 'react-context-hook'
 
 
 const usePrepareDeck = (cardsArray) => {
+  const [cards, setCards] = useState([])
   const [started] = useStore('started')
 
-  const [cards, setCards] = useState([])
 
   const includeImageAndColor = cardsArray => {
     const localCardsArray = [ ...cardsArray ]

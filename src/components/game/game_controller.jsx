@@ -14,7 +14,7 @@ const useGameController = (cardsLength) => {
   const [started, setStarted] = useStore('started')
   const [bestTime, setBestTime] = useStore('bestTime')
   const [gameSize, setGameSize] = useStore('gameSize')
-  const { toggleAudio, soundStatusIcon } = useAudioController(started, rightOnes, gameSize)
+  const { toggleAudio, soundStatusIcon } = useAudioController({ started, rightOnes, gameSize, selected })
 
   useEffect(() => {setGameSize(cardsLength)}, [])
 
@@ -26,17 +26,13 @@ const useGameController = (cardsLength) => {
   }, [selected])
 
   useEffect(() => {
-
     if (!started) {
       clearInterval(timer)
-      return
+    } else {
+      setSeconds(0)
+      const interval = setInterval(() => setSeconds(seconds => seconds + 1), 1000)
+      setTimer(interval)
     }
-
-    setSeconds(0)
-    const interval = setInterval(() => setSeconds(seconds => seconds + 1), 1000)
-    setTimer(interval)
-
-    return () => clearInterval(timer)
   }, [started])
 
 

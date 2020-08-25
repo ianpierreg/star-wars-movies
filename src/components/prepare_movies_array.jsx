@@ -42,13 +42,16 @@ const usePrepareMoviesArray = (moviesArray) => {
 
   useEffect(() => {
     if(started) return
-    setMovies([])
-    let localMovies = [ ...moviesArray ]
-    localMovies = includeImageAndColor(localMovies)
-    localMovies = doubleArrayItems(localMovies)
-    localMovies = includeId(localMovies)
-    localMovies = shuffleArray(localMovies)
-    setMovies(localMovies)
+    setTimeout(() => {
+      setMovies([])
+      let localMovies = [ ...moviesArray ]
+      localMovies = includeImageAndColor(localMovies)
+      localMovies = doubleArrayItems(localMovies)
+      localMovies = includeId(localMovies)
+      localMovies = shuffleArray(localMovies)
+      setMovies(localMovies)
+    },1000)
+
   }, [started])
 
   return movies

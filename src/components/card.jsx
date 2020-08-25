@@ -6,21 +6,26 @@ import initialStore from '../helpers/initial_store'
 const Card = ({ dat }) => {
   const data = { ...dat }
   const [clicked, setClicked] = useState(false)
-  const [className, setClassName] = useState('')
+  const [className, setClassName] = useState('card hide')
   const [selected, setSelected] = useStore('selected')
   const [started] = useStore('started')
   const [rightOnes] = useStore('rightOnes')
-
-  useEffect(() => {setClassName(classes())}, [clicked])
+  const [selectedCardSound] = useState(new Audio('/sounds/airgun.mp3'))
 
   useEffect(() => {
-    if (!started) {
-      setClicked(false)
-      setClassName(classes())
-      return
-    }
+    if(clicked) selectedCardSound.play()
+    setClassName(classes())
+  }, [clicked])
 
-    setTimeout(() => setClassName(classes()), (data.id+1)*100)
+  useEffect(() => {
+    selectedCardSound.volume = 0.001
+  }, [])
+
+  useEffect(() => {
+    if (!started) setClicked(false)
+
+    setClassName(classes())
+    // setTimeout(() => setClassName(classes()), (data.id+1)*100)
   }, [started])
 
   const setMeAsSelected = () => {
@@ -52,7 +57,7 @@ const Card = ({ dat }) => {
 
   const classes = () => {
     const newClasses = ['card']
-    if(started) newClasses.push('show')
+    newClasses.push(started ? 'show' : 'hide')
     if(clicked) newClasses.push('clicked')
     return newClasses.join(' ')
   }

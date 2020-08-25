@@ -2,6 +2,8 @@ import { useEffect, useState } from 'react';
 import '../assets/stylesheets/cards.scss'
 import { useStore } from 'react-context-hook'
 import initialStore from '../helpers/initial_store'
+import soundOn from "../assets/images/soundOn.png";
+import soundOff from "../assets/images/soundOff.png";
 
 const useGameController = (cardsLength) => {
   const [seconds, setSeconds] = useState(0)
@@ -11,8 +13,14 @@ const useGameController = (cardsLength) => {
   const [started, setStarted] = useStore('started')
   const [bestTime, setBestTime] = useStore('bestTime')
   const [gameSize, setGameSize] = useStore('gameSize')
+  const [endGameSound] = useState(new Audio('/sounds/coolsaber.mp3'))
+  const [startGameSound] = useState(new Audio('/sounds/saberOn.mp3'))
 
-  useEffect(() => { setGameSize(cardsLength) }, [])
+  useEffect(() => {
+    startGameSound.volume = 0.001
+    endGameSound.volume = 0.002
+    setGameSize(cardsLength)
+  }, [])
 
   useEffect(() => {
     const { firstSelected, secondSelected } = selected
@@ -21,7 +29,11 @@ const useGameController = (cardsLength) => {
     }
   }, [selected])
 
+
+
+
   useEffect(() => {
+    started ? startGameSound.play() : endGameSound.play()
     if (!started) {
       clearInterval(timer)
       return
@@ -42,10 +54,10 @@ const useGameController = (cardsLength) => {
   }, [rightOnes])
 
   const restart = () => {
-    setStarted(!started)
     setRightOnes([])
     const itemsStoreTemplate = { ...initialStore.selected }
     setSelected(itemsStoreTemplate)
+    setStarted(!started)
   }
 
   return { seconds, restart }

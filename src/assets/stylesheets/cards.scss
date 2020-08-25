@@ -11,20 +11,36 @@
 }
 
 .card {
+  cursor: pointer;
   min-width: 300px;
   height: 150px;
   perspective: 1000px;
   filter: drop-shadow(4px 4px 1px rgba(50, 50, 0, 0.5));
   display: flex;
-  opacity: 0;
   justify-content: center;
   align-items: center;
 }
 
-.card.show {
-  animation: cardIn 0.3s ease;
-  //transition: opacity 0.3s ease-in;
-  opacity: 1;
+$randomNumber: random(5);
+
+@for $i from 1 through 1000 {
+  .card.show:nth-of-type(#{$i}) {
+    transition: 0.5s visibility step-start,
+    0.5s pointer-events step-start,
+    0.5s opacity ease;
+    transition-delay: random()/2 + s;
+    opacity: 1;
+    pointer-events: all;
+  }
+
+  .card.hide:nth-of-type(#{$i}) {
+    pointer-events: none;
+    transition: 0.5s visibility step-end,
+    0.5s pointer-events step-end,
+    0.5s opacity ease;
+    transition-delay: random()/2 + s;
+    opacity: 0;
+  }
 }
 
 .content {
@@ -155,4 +171,21 @@
   80% { opacity: 0.4 }
   90% { opacity: 0.7 }
   100% { opacity: 1 }
+}
+
+@keyframes cardOut {
+  0% { opacity: 1 }
+  5% { opacity: 0.7 }
+  10% { opacity: 0.4 }
+  15% { opacity: 0.6 }
+  20% { opacity: 0.4 }
+  25% { opacity: 0.2 }
+  30% { opacity: 0.3 }
+  35% { opacity: 0.4 }
+  40% { opacity: 0.2 }
+  50% { opacity: 0.2 }
+  60% { opacity: 0.4 }
+  80% { opacity: 0.3 }
+  90% { opacity: 0.2 }
+  100% { opacity: 0 }
 }

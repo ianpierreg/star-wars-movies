@@ -2,8 +2,8 @@
 
 .audio-player {
   border-radius: 50%;
-  height: 4vh;
-  width: 4vh;
+  height: 5vh;
+  width: 5vh;
   margin: 1vh 0;
   background: #F5ED15;
   display: flex;
@@ -17,8 +17,8 @@
 }
 
 .sound-icon {
-  width: 3vh;
-  height: 3vh;
+  width: 4vh;
+  height: 4vh;
 
   @include device-size(medium) {
     width: 2.5vh;

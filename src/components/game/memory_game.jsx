@@ -1,4 +1,4 @@
-import React, { useState, useEeffect } from 'react'
+import React, { useState, useEffect } from 'react'
 import '../../assets/stylesheets/stars_panel.scss'
 import CardsWrapper from '../cards/cards_wrapper'
 import { withStore } from 'react-context-hook'
@@ -6,7 +6,7 @@ import GameInfo from './game_info'
 import initialStore from '../../helpers/initial_store'
 import AudioToggler from '../audio/audio_toggler'
 import useGameController from './game_controller'
-import axios from 'axios';
+import axios from 'axios'
 
 
 const mockData = {
@@ -519,10 +519,21 @@ const MemoryGame = () => {
   const { seconds, restart, toggleAudio, soundStatusIcon } = useGameController(mockData.results.length)
   const [data, setData] = useState([])
 
-  useEffect(async () => {
-    const result = await axios('https://swapi.dev/api/films/')
-    setData(result.data);
-  })
+  // useEffect(async () => {
+  //   const result = await axios('https://swapi.dev/api/films/')
+  //   setData(result.data);
+  // })
+
+  useEffect(() => {
+    async function fetchData() {
+      // const response = await MyAPI.getData(someId);
+      console.log('chamou')
+      const response = await axios('https://swapi.dev/api/filmes/')
+      console.log(response.data.results)
+      setData(response.data.results)
+    }
+    fetchData();
+  }, []); // Or [] if effect doesn't need props or state
 
   return (
     <div>

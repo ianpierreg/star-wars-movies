@@ -38,7 +38,7 @@ const usePrepareDeck = (cardsArray) => {
   }
 
   useEffect(() => {
-    if(started) return
+    if(started || cardsArray.length === 0) return
     setTimeout(() => {
       setCards([])
       let localCards = [ ...cardsArray ]
@@ -49,7 +49,7 @@ const usePrepareDeck = (cardsArray) => {
       setCards(localCards)
     },1000)
 
-  }, [started])
+  }, [started, cardsArray])
 
   return cards
 }

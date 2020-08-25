@@ -7,7 +7,7 @@ justify-content: space-between;
 align-content: center;
 font-size: 25px;
 color: white;
-height: 15vh;
+height: 14vh;
 box-sizing: border-box;
 
   @include device-size(extra-small) {
@@ -38,9 +38,9 @@ box-sizing: border-box;
       text-transform: uppercase;
       color: wheat;
       position: absolute;
-      top: 2vw;
+      top: 1.5vw;
       width: 100%;
-      font-size: 1.2vw;
+      font-size: 1vw;
       display: flex;
 
       &:after {

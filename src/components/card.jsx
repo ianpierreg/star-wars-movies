@@ -10,7 +10,7 @@ const Card = ({ dat }) => {
   const [selected, setSelected] = useStore('selected')
   const [started] = useStore('started')
   const [rightOnes] = useStore('rightOnes')
-  const [selectedCardSound] = useState(new Audio('/sounds/airgun.mp3'))
+  const [selectedCardSound] = useState(new Audio('/sounds/cardSelection.mp3'))
 
   useEffect(() => {
     if(clicked) selectedCardSound.play()

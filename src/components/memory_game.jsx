@@ -1,11 +1,11 @@
 import React from 'react'
 import '../assets/stylesheets/stars_panel.scss'
 import CardsWrapper from './cards_wrapper'
-import {useStore, withStore} from 'react-context-hook'
+import { withStore } from 'react-context-hook'
 import GameInfo from './game_info'
 import initialStore from '../helpers/initial_store'
-import AudioPlayer from './audio_player'
-import useGameController from "./game_controller";
+import AudioToggler from './audio_toggler'
+import useGameController from './game_controller'
 const mockData = {
   "count": 6,
   "next": null,
@@ -511,8 +511,9 @@ const mockData = {
     }
   ]
 }
+
 const MemoryGame = () => {
-  const {seconds, restart} = useGameController(mockData.results.length)
+  const { seconds, restart, toggleAudio, soundStatusIcon } = useGameController(mockData.results.length)
 
   return (
     <div>
@@ -520,7 +521,7 @@ const MemoryGame = () => {
       <div id='stars2'/>
       <div id='stars3'/>
       <GameInfo seconds={seconds} restart={restart} />
-      <AudioPlayer />
+      <AudioToggler toggleAudio={toggleAudio} soundStatusIcon={soundStatusIcon} />
       <CardsWrapper mockData={mockData} />
     </div>
   )

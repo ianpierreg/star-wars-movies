@@ -10,14 +10,13 @@ const usePrepareDeck = (cardsArray) => {
   const [cards, setCards] = useState([])
   const [started] = useStore('started')
 
-
   const includeImageAndColor = cardsArray => {
     const localCardsArray = [ ...cardsArray ]
     const color = giveMeOneColor()
-
+    let imagesCopy = [ ...images ]
     return localCardsArray.map(result => {
       const newResult = { ...result }
-      newResult.image = images.pop()
+      newResult.image = imagesCopy.pop()
       newResult.color = color
       return newResult
     })

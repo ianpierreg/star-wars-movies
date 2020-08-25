@@ -7,10 +7,11 @@ justify-content: space-between;
 align-content: center;
 font-size: 25px;
 color: white;
-height: 15%;
+height: 15vh;
+box-sizing: border-box;
 
   @include device-size(extra-small) {
-    margin-top: 3%;
+    padding-top: 1vh;
   }
 
   .saber {
@@ -59,12 +60,12 @@ height: 15%;
 
       @include device-size(extra-large) {
         font-size: 1.3vw;
-        top: 1.5vw;
+        top: 2vh;
       }
 
       @include device-size(medium) {
-        font-size: 1.7vw;
-        top: 1vw;
+        font-size: 1.5vw;
+        top: 3vh;
 
         &:after {
           content: ' s'
@@ -112,7 +113,13 @@ height: 15%;
       }
 
       @include device-size(medium) {
-        font-size: 2vw;
+        padding: 1.5vw 3vw;
+        font-size: 1.6vw;
+      }
+
+      @include device-size(extra-small) {
+        padding: 2vw 4vw;
+        font-size: 1.8vw;
       }
 
       &.red {

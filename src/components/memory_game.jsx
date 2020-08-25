@@ -512,7 +512,7 @@ const mockData = {
   ]
 }
 const MemoryGame = () => {
-  const [seconds, restart] = useGameController(mockData.results.length)
+  const {seconds, restart} = useGameController(mockData.results.length)
 
   return (
     <div>

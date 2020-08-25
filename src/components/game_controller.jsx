@@ -1,7 +1,6 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import '../assets/stylesheets/cards.scss'
-import PropTypes from 'prop-types'
-import { useStore, useSetStoreValue } from 'react-context-hook'
+import { useStore } from 'react-context-hook'
 import initialStore from '../helpers/initial_store'
 
 const useGameController = (cardsLength) => {
@@ -14,6 +13,7 @@ const useGameController = (cardsLength) => {
   const [gameSize, setGameSize] = useStore('gameSize')
 
   useEffect(() => { setGameSize(cardsLength) }, [])
+
   useEffect(() => {
     const { firstSelected, secondSelected } = selected
     if(firstSelected.episodeId === secondSelected.episodeId && firstSelected.episodeId !== -1) {
@@ -48,7 +48,7 @@ const useGameController = (cardsLength) => {
     setSelected(itemsStoreTemplate)
   }
 
-  return [seconds, restart]
+  return { seconds, restart }
 }
 
 export default useGameController

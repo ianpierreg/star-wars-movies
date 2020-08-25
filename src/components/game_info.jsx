@@ -35,7 +35,6 @@ const GameInfo = ({ seconds, restart }) => {
         <span className="top-info">Melhor tempo: {bestTime} segundos</span>
       </div>
     </div>
-
   )
 }
 

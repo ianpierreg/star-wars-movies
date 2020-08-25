@@ -25,12 +25,9 @@ const Card = ({ dat }) => {
 
   const setMeAsSelected = () => {
     const { id, episode_id: episodeId } = data
-    console.log(rightOnes)
     if(rightOnes.includes(episodeId)) return
     const { firstSelected, secondSelected } = selected
     let itemsStoreTemplate  =  { ...initialStore.selected }
-
-    console.log('dd', itemsStoreTemplate)
     const noCardsSelected = firstSelected.id === -1 && secondSelected.id === -1
     const firstCardSelected = firstSelected.id !== -1 && secondSelected.id === -1
     const bothCardsSelected = firstSelected.id !== -1 && secondSelected.id !== -1
@@ -42,18 +39,14 @@ const Card = ({ dat }) => {
       itemsStoreTemplate = { firstSelected, secondSelected: { id, episodeId }}
     }
 
-    console.log(itemsStoreTemplate)
     setSelected(itemsStoreTemplate)
   }
 
   useEffect(() => {
     const { firstSelected, secondSelected } = selected
     const { id, episode_id: episodeId } = data
-    if (firstSelected.id === id || secondSelected.id === id || rightOnes.includes(episodeId)) {
-      setClicked(true)
-    } else {
-      setClicked(false)
-    }
+    const shouldSetClicked = firstSelected.id === id || secondSelected.id === id || rightOnes.includes(episodeId)
+    setClicked(shouldSetClicked)
   }, [selected])
 
 

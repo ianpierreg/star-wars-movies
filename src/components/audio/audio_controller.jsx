@@ -16,7 +16,7 @@ const useAudioController = ({ started, rightOnes, gameSize, selected }) => {
   const [selectedCardSound] = useState(new Audio('/sounds/cardSelection.mp3'))
 
   useEffect(() => {
-    // if(mounted && !shouldPauseSounds) selectedCardSound.play()
+     if(mounted && !shouldPauseSounds) selectedCardSound.play()
   }, [selected])
 
   const toggleAudio = () => {
@@ -36,25 +36,26 @@ const useAudioController = ({ started, rightOnes, gameSize, selected }) => {
   }
 
   useEffect(() => {
+    console.log('start song')
     setMounted(true)
-    // themeMusic.play()
+    themeMusic.play()
     themeMusic.loop = true
-    themeMusic.volume = 0.0004
-    startGameSound.volume = 0.001
-    selectedCardSound.volume = 0.001
-    endGameSound.volume = 0.002
-    winGameSound.volume = 0.004
+    themeMusic.volume = 0.03
+    startGameSound.volume = 0.05
+    selectedCardSound.volume = 0.05
+    endGameSound.volume = 0.1
+    winGameSound.volume = 0.5
   }, [])
 
   useEffect(() => {
     if(mounted && !shouldPauseSounds) {
-      // started ? startGameSound.play() : endGameSound.play()
+       started ? startGameSound.play() : endGameSound.play()
     }
   }, [started])
 
 
   useEffect(() => {
-    // if(rightOnes.length === gameSize && mounted && !shouldPauseSounds) winGameSound.play()
+     if(rightOnes.length === gameSize && mounted && !shouldPauseSounds) winGameSound.play()
   }, [rightOnes])
 
   return { toggleAudio, soundStatusIcon }

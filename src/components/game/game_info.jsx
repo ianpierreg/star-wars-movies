@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react'
-import '../../assets/stylesheets/header.scss'
+import React from 'react'
+import '../../assets/stylesheets/game_info.scss'
 import blueSaber from '../../assets/images/blueSaber.png'
 import greenSaber from '../../assets/images/greenSaber.png'
 import { useStore } from 'react-context-hook'
@@ -22,7 +22,7 @@ const GameInfo = ({ seconds, restart }) => {
     if (rightOnes.length === gameSize) return `${newClass} blue`
     return `${newClass} red`
   }
-
+// TODO: Extract button
   return (
     <div className="header">
       <div className="saber left-saber">

@@ -523,65 +523,6 @@ const MemoryGame = () => {
       <GameInfo seconds={seconds} restart={restart} />
       <AudioToggler toggleAudio={toggleAudio} soundStatusIcon={soundStatusIcon} />
       <CardsWrapper mockData={mockData} />
-      <section className="stripe" id="dark">
-        <div className="container">
-
-          <div className="person" id="phasma">
-            <div className="body">
-              <div className="pauldron"></div>
-            </div>
-            <div className="cape"></div>
-            <div className="chin"></div>
-            <div className="helmet">
-              <div className="mouth">
-                <div className="mouth-plate"></div>
-              </div>
-              <div className="eyes"></div>
-              <div className="brow"></div>
-              <div className="helmet-stripe-holder">
-                <div className="helmet-stripe"></div>
-              </div>
-            </div>
-          </div>
-
-          <div className="person" id="kylo">
-            <div className="cloak"></div>
-            <div className="body"></div>
-            <div className="cloak-front"></div>
-            <div className="hood">
-              <div className="hood-bottom"></div>
-            </div>
-            <div className="mask">
-              <div className="mask-breather">
-                <div className="mask-breather-bottom"></div>
-              </div>
-              <div className="mask-1"></div>
-              <div className="mask-2"></div>
-              <div className="eyes"></div>
-            </div>
-            <div className="lightsaber"></div>
-            <div className="hilt"></div>
-          </div>
-
-          <div className="person" id="hux">
-            <div className="ear left"></div>
-            <div className="ear right"></div>
-            <div className="hair"></div>
-            <div className="face">
-              <div className="hair-under"></div>
-              <div className="eyes"></div>
-              <div className="nose"></div>
-              <div className="mouth"></div>
-            </div>
-            <div className="pouf"></div>
-            <div className="neck"></div>
-            <div className="body">
-              <div className="patch"></div>
-            </div>
-          </div>
-
-        </div>
-      </section>
     </div>
   )
 }

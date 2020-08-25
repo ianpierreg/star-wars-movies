@@ -10,12 +10,7 @@ const Card = ({ card }) => {
   const [started] = useStore('started')
   const [rightOnes] = useStore('rightOnes')
 
-  useEffect(() => {
-    console.log('seteiclicked')
-    setClassName(classes())
-  }, [clicked])
-
-  useEffect(() => {}, [])
+  useEffect(() => { setClassName(classes()) }, [clicked])
 
   useEffect(() => {
     if (!started) setClicked(false)
@@ -45,7 +40,7 @@ const Card = ({ card }) => {
     const { firstSelected, secondSelected } = selected
     const { id, episode_id: episodeId } = card
     const shouldSetClicked = firstSelected.id === id || secondSelected.id === id || rightOnes.includes(episodeId)
-    if (shouldSetClicked) console.log('setclicked')
+
     setClicked(shouldSetClicked)
   }, [selected])
 
@@ -54,9 +49,10 @@ const Card = ({ card }) => {
     const newClasses = ['card']
     newClasses.push(started ? 'show' : 'hide')
     if(clicked) newClasses.push('clicked')
+
     return newClasses.join(' ')
   }
-
+//TODO: extract more components from here
   return (
     <div className={className} onClick={started ? setMeAsSelected : () => {}}>
       <div className='content'>

@@ -9,6 +9,10 @@ font-size: 25px;
 color: white;
 height: 15%;
 
+  @include device-size(extra-small) {
+    margin-top: 3%;
+  }
+
   .saber {
     position: relative;
     width: 45%;
@@ -25,14 +29,17 @@ height: 15%;
       width: 100%;
     }
 
+    @import url('https://fonts.googleapis.com/css2?family=Lato:ital@1&family=Press+Start+2P&display=swap');
+
     .top-info {
       font-family: 'ITC Serif Gothic', serif;
+      font-family: 'Press Start 2P', cursive;
       text-transform: uppercase;
       color: wheat;
       position: absolute;
-      top: 4.5vh;
+      top: 2vw;
       width: 100%;
-      font-size: 1.5vw;
+      font-size: 1.2vw;
       display: flex;
 
       &:after {
@@ -51,18 +58,13 @@ height: 15%;
       }
 
       @include device-size(extra-large) {
-        font-size: 1.9vw;
-        top: 3vh;
-      }
-
-      @include device-size(large) {
-        font-size: 1.7vw;
-        top: 2.5vh;
+        font-size: 1.3vw;
+        top: 1.5vw;
       }
 
       @include device-size(medium) {
-        font-size: 2.4vw;
-        top: 1vh;
+        font-size: 1.7vw;
+        top: 1vw;
 
         &:after {
           content: ' s'
@@ -70,7 +72,7 @@ height: 15%;
       }
 
       @include device-size(extra-small) {
-        font-size: 3.2vw;
+        font-size: 2vw;
 
         &:after {
           content: ' s'
@@ -97,27 +99,20 @@ height: 15%;
       border: none;
       border-radius: 7px;
       font-weight: 700;
-      padding: 0.5vw 1vw;
+      padding: 1vw 2vw;
       font-family: 'ITC Serif Gothic', serif;
+      font-family: 'Press Start 2P', cursive;
       text-transform: uppercase;
       align-self: center;
       cursor: pointer;
-      font-size: 1.5vw;
-
-      @include device-size(extra-large) {
-        font-size: 1.9vw;
-      }
+      font-size: 1vw;
 
       @include device-size(large) {
-        font-size: 1.7vw;
+        font-size: 1.3vw;
       }
 
       @include device-size(medium) {
-        font-size: 2.7vw;
-      }
-
-      @include device-size(extra-small) {
-        font-size: 4vw;
+        font-size: 2vw;
       }
 
       &.red {

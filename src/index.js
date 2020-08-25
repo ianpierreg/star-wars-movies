@@ -1,7 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import * as serviceWorker from './serviceWorker'
-import MemoryGame from './components/memory_game'
+import MemoryGame from './components/game/memory_game'
 
 ReactDOM.render(
   <React.StrictMode>

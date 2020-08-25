@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react'
-import '../assets/stylesheets/cards.scss'
+import '../../assets/stylesheets/cards.scss'
 import PropTypes from 'prop-types'
 import Card from './card'
-import usePrepareMoviesArray from './prepare_movies_array'
+import usePrepareDeck from './prepare_deck'
 
 const CardsWrapper = ({ mockData }) => {
-  const movies = usePrepareMoviesArray([...mockData.results ])
+  const movies = usePrepareDeck([...mockData.results ])
 
   return (
     <div className="movies-wrapper">

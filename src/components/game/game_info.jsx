@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
-import '../assets/stylesheets/header.scss'
-import blueSaber from '../assets/images/blueSaber.png'
-import greenSaber from '../assets/images/greenSaber.png'
+import '../../assets/stylesheets/header.scss'
+import blueSaber from '../../assets/images/blueSaber.png'
+import greenSaber from '../../assets/images/greenSaber.png'
 import { useStore } from 'react-context-hook'
 
 const GameInfo = ({ seconds, restart }) => {

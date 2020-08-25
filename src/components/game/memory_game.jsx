@@ -1,10 +1,10 @@
 import React from 'react'
-import '../assets/stylesheets/stars_panel.scss'
-import CardsWrapper from './cards_wrapper'
+import '../../assets/stylesheets/stars_panel.scss'
+import CardsWrapper from '../cards/cards_wrapper'
 import { withStore } from 'react-context-hook'
 import GameInfo from './game_info'
-import initialStore from '../helpers/initial_store'
-import AudioToggler from './audio_toggler'
+import initialStore from '../../helpers/initial_store'
+import AudioToggler from '../audio/audio_toggler'
 import useGameController from './game_controller'
 const mockData = {
   "count": 6,

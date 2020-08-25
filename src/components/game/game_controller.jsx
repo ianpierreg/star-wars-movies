@@ -1,10 +1,10 @@
 import { useEffect, useState } from 'react';
-import '../assets/stylesheets/cards.scss'
+import '../../assets/stylesheets/cards.scss'
 import { useStore } from 'react-context-hook'
-import initialStore from '../helpers/initial_store'
-import soundOn from "../assets/images/soundOn.png";
-import soundOff from "../assets/images/soundOff.png";
-import useAudioController from "./audio_controller";
+import initialStore from '../../helpers/initial_store'
+import soundOn from "../../assets/images/soundOn.png";
+import soundOff from "../../assets/images/soundOff.png";
+import useAudioController from "../audio/audio_controller";
 
 const useGameController = (cardsLength) => {
   const [seconds, setSeconds] = useState(0)

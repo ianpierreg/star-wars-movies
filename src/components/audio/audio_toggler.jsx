@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
-import '../assets/stylesheets/audio_player.scss'
-import soundOff from '../assets/images/soundOff.png'
-import soundOn from '../assets/images/soundOn.png'
+import '../../assets/stylesheets/audio_player.scss'
+import soundOff from '../../assets/images/soundOff.png'
+import soundOn from '../../assets/images/soundOn.png'
 
 const AudioToggler = ({ toggleAudio, soundStatusIcon }) => {
 

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
-import '../assets/stylesheets/cards.scss'
+import '../../assets/stylesheets/cards.scss'
 import { useStore } from 'react-context-hook'
-import initialStore from '../helpers/initial_store'
+import initialStore from '../../helpers/initial_store'
 
 const Card = ({ dat }) => {
   const data = { ...dat }

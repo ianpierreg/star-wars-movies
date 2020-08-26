@@ -1,0 +1,41 @@
+{
+  "files": {
+    "main.css": "/star-wars-movies/static/css/main.227ba3e6.chunk.css",
+    "main.js": "/star-wars-movies/static/js/main.eecf55a2.chunk.js",
+    "main.js.map": "/star-wars-movies/static/js/main.eecf55a2.chunk.js.map",
+    "runtime-main.js": "/star-wars-movies/static/js/runtime-main.e17908c1.js",
+    "runtime-main.js.map": "/star-wars-movies/static/js/runtime-main.e17908c1.js.map",
+    "static/js/2.90becc78.chunk.js": "/star-wars-movies/static/js/2.90becc78.chunk.js",
+    "static/js/2.90becc78.chunk.js.map": "/star-wars-movies/static/js/2.90becc78.chunk.js.map",
+    "index.html": "/star-wars-movies/index.html",
+    "precache-manifest.e444e409a471c94f9168f4e9157793a8.js": "/star-wars-movies/precache-manifest.e444e409a471c94f9168f4e9157793a8.js",
+    "service-worker.js": "/star-wars-movies/service-worker.js",
+    "static/css/main.227ba3e6.chunk.css.map": "/star-wars-movies/static/css/main.227ba3e6.chunk.css.map",
+    "static/js/2.90becc78.chunk.js.LICENSE.txt": "/star-wars-movies/static/js/2.90becc78.chunk.js.LICENSE.txt",
+    "static/media/MaxPixel.net-Film-Robot-Toys-Star-Wars-At-At-Science-Fiction-5277546.jpg": "/star-wars-movies/static/media/MaxPixel.net-Film-Robot-Toys-Star-Wars-At-At-Science-Fiction-5277546.1691ab08.jpg",
+    "static/media/MaxPixel.net-Power-At-at-Starwars-Sword-Spaceship-Yoda-Jedi-4868964.jpg": "/star-wars-movies/static/media/MaxPixel.net-Power-At-at-Starwars-Sword-Spaceship-Yoda-Jedi-4868964.af3d3d48.jpg",
+    "static/media/agnieszka-kowalczyk-c0VRNWVEjOA-unsplash (1).jpg": "/star-wars-movies/static/media/agnieszka-kowalczyk-c0VRNWVEjOA-unsplash (1).9c8f1277.jpg",
+    "static/media/andrew-wulf-9wxaMpJNOWw-unsplash.jpg": "/star-wars-movies/static/media/andrew-wulf-9wxaMpJNOWw-unsplash.8c1b6441.jpg",
+    "static/media/bb-8-1185956_1280.jpg": "/star-wars-movies/static/media/bb-8-1185956_1280.320f0731.jpg",
+    "static/media/blueSaber.png": "/star-wars-movies/static/media/blueSaber.f2526dd2.png",
+    "static/media/brian-mcgowan-ggg_B1MeqQk-unsplash.jpg": "/star-wars-movies/static/media/brian-mcgowan-ggg_B1MeqQk-unsplash.b8f7476e.jpg",
+    "static/media/eric-ding-K0fUP7N6XBY-unsplash.jpg": "/star-wars-movies/static/media/eric-ding-K0fUP7N6XBY-unsplash.a823c7b5.jpg",
+    "static/media/greenSaber.png": "/star-wars-movies/static/media/greenSaber.954b9f68.png",
+    "static/media/josue-as-_nprTIIwSk4-unsplash.jpg": "/star-wars-movies/static/media/josue-as-_nprTIIwSk4-unsplash.ce97ecfc.jpg",
+    "static/media/loader.gif": "/star-wars-movies/static/media/loader.85fe7cd0.gif",
+    "static/media/michael-marais-1VV1MRafd7A-unsplash.jpg": "/star-wars-movies/static/media/michael-marais-1VV1MRafd7A-unsplash.a4d613e3.jpg",
+    "static/media/millenium-falcon-1627322_1280.jpg": "/star-wars-movies/static/media/millenium-falcon-1627322_1280.890afbb2.jpg",
+    "static/media/rod-long-rKiXtZPOQ28-unsplash.jpg": "/star-wars-movies/static/media/rod-long-rKiXtZPOQ28-unsplash.66a6a50b.jpg",
+    "static/media/spaceship-5105962_960_720.jpg": "/star-wars-movies/static/media/spaceship-5105962_960_720.4e163cf5.jpg",
+    "static/media/starwars-2048262_1280.jpg": "/star-wars-movies/static/media/starwars-2048262_1280.1fa78037.jpg",
+    "static/media/tommy-van-kessel-_sDlQf6f7gc-unsplash.jpg": "/star-wars-movies/static/media/tommy-van-kessel-_sDlQf6f7gc-unsplash.9ec48d18.jpg",
+    "static/media/wallpaper-4358343_1280.jpg": "/star-wars-movies/static/media/wallpaper-4358343_1280.43997ff8.jpg",
+    "static/media/yoda-4708878_1280.jpg": "/star-wars-movies/static/media/yoda-4708878_1280.0884bd2b.jpg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.e17908c1.js",
+    "static/js/2.90becc78.chunk.js",
+    "static/css/main.227ba3e6.chunk.css",
+    "static/js/main.eecf55a2.chunk.js"
+  ]
+}

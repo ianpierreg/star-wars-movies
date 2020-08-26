@@ -26,9 +26,8 @@ const useGameController = (cardsNumber) => {
 
   useEffect(() => {
     const { firstSelected, secondSelected } = selected
-    if(firstSelected.episodeId === secondSelected.episodeId && firstSelected.episodeId !== -1) {
-      setRightOnes([...rightOnes, firstSelected.episodeId])
-    }
+    const foundEqualCards = firstSelected.episodeId === secondSelected.episodeId && firstSelected.episodeId !== -1
+    if (foundEqualCards) setRightOnes([...rightOnes, firstSelected.episodeId])
   }, [selected])
 
   useEffect(() => {
@@ -36,11 +35,10 @@ const useGameController = (cardsNumber) => {
       clearInterval(timer)
     } else {
       setSeconds(0)
-      const interval = setInterval(() => setSeconds(seconds => seconds + 1), 1000)
+      const interval = setInterval(() => setSeconds(secs => secs + 1), 1000)
       setTimer(interval)
     }
   }, [started])
-
 
   useEffect(() => {
     if(rightOnes.length !== gameSize) return

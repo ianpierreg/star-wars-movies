@@ -1,9 +1,9 @@
 import React from 'react'
 import '../../assets/stylesheets/game_info.scss'
+import PropTypes from 'prop-types'
+import { useStore } from 'react-context-hook'
 import blueSaber from '../../assets/images/blueSaber.png'
 import greenSaber from '../../assets/images/greenSaber.png'
-import { useStore } from 'react-context-hook'
-import PropTypes from 'prop-types'
 
 const GameInfo = ({ seconds, restart }) => {
   const [rightOnes] = useStore('rightOnes')
@@ -12,7 +12,7 @@ const GameInfo = ({ seconds, restart }) => {
   const [started] = useStore('started')
 
   const buttonText = () => {
-    if(!started) return 'Iniciar'
+    if (!started) return 'Iniciar'
     if (rightOnes.length === gameSize) return 'Embaralhar'
     return 'Desistir'
   }
@@ -23,7 +23,8 @@ const GameInfo = ({ seconds, restart }) => {
     if (rightOnes.length === gameSize) return `${newClass} blue`
     return `${newClass} red`
   }
-// TODO: Extract button
+
+  // TODO: Extract button
   return (
     <div className="header">
       <div className="saber left-saber">

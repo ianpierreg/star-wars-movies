@@ -26,7 +26,7 @@ const useAudioController = ({ started, rightOnes, gameSize, selected }) => {
   const [selectedCardSound] = useState(new Audio('/sounds/cardSelection.mp3'))
 
   useEffect(() => {
-     if(mounted && !shouldPauseSounds) selectedCardSound.play()
+    if (mounted && !shouldPauseSounds) selectedCardSound.play()
   }, [selected])
 
   const toggleAudio = () => {
@@ -57,14 +57,13 @@ const useAudioController = ({ started, rightOnes, gameSize, selected }) => {
   }, [])
 
   useEffect(() => {
-    if(mounted && !shouldPauseSounds) {
-       started ? startGameSound.play() : endGameSound.play()
+    if (mounted && !shouldPauseSounds) {
+      started ? startGameSound.play() : endGameSound.play()
     }
   }, [started])
 
-
   useEffect(() => {
-     if(rightOnes.length === gameSize && mounted && !shouldPauseSounds) winGameSound.play()
+    if (rightOnes.length === gameSize && mounted && !shouldPauseSounds) winGameSound.play()
   }, [rightOnes])
 
   return { toggleAudio, soundStatusIcon }

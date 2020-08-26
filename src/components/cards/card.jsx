@@ -56,7 +56,11 @@ const Card = ({ card }) => {
   }, [selected])
 
   return (
-    <div className={className} onClick={started ? setMeAsSelected : () => {}}>
+    <div
+      className={className}
+      onClick={started ? setMeAsSelected : () => {}}
+      role="button"
+    >
       <div className="content">
         <CardFront color={card.color} />
         <CardBack image={card.image} title={card.title} />

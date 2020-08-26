@@ -7,16 +7,18 @@ const CommandButton = ({ restart }) => {
   const [gameSize] = useStore('gameSize')
   const [started] = useStore('started')
 
+  const isGameWon = () => rightOnes.length === gameSize && gameSize > 0
+
   const buttonText = () => {
     if (!started) return 'Iniciar'
-    if (rightOnes.length === gameSize) return 'Embaralhar'
+    if (isGameWon()) return 'Embaralhar'
     return 'Desistir'
   }
 
   const buttonClass = () => {
     const newClass = 'main-button'
     if (!started) return `${newClass} yellow`
-    if (rightOnes.length === gameSize) return `${newClass} blue`
+    if (isGameWon()) return `${newClass} blue`
     return `${newClass} red`
   }
 

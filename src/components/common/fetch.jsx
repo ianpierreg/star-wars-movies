@@ -16,6 +16,7 @@ const useFetch = (url, options) => {
         setError(null)
       } catch (err) {
         setError(err)
+        alert(err)
         setIsLoading(false)
       }
     }

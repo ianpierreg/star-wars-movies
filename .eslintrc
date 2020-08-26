@@ -12,6 +12,9 @@
     "jest": true
   },
   "rules": {
+    "interactive-supports-focus": "off",
+    "click-events-have-key-events": "off",
+    "comma-dangle": "off",
     "arrow-parens": "off",
     "object-curly-newline": "off",
     "max-len": ["error", { "code": 100 }],

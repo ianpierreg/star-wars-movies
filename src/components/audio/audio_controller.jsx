@@ -1,9 +1,7 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react'
 import '../../assets/stylesheets/cards.scss'
-import { useStore } from 'react-context-hook'
-import initialStore from '../../helpers/initial_store'
-import soundOn from "../../assets/images/soundOn.png";
-import soundOff from "../../assets/images/soundOff.png";
+import soundOn from '../../assets/images/soundOn.png'
+import soundOff from '../../assets/images/soundOff.png'
 
 /**
  * This is the custom hook that will control the whole audio played in the game

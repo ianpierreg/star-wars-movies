@@ -2,7 +2,16 @@ Project - Stars Wars Memory Game
 ---------
 
 This project is a simple memory game using data from the [SWAP API](https://swapi.dev/ "SWAP API"), a API for Star Wars info such as movies, starships, characters and so on.
+Some responsiveness work was performed to make it look nice 
+on mobile devices and although it needs some fixing
+and refactoring, it can be played on both desktops 
+and mobile devices
 
+### Desktop
+![Desktop](src/assets/images/desktop.gif)
+
+### Mobile device
+![Desktop](src/assets/images/responsive.gif)
 
 Components
 ----------

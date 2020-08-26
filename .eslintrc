@@ -1,0 +1,38 @@
+{
+  "plugins": ["react-hooks"],
+  "parser": "babel-eslint",
+  "parserOptions": {
+    "sourceType": "module",
+    "allowImportExportEverywhere": false,
+    "codeFrame": false
+  },
+  "extends": ["airbnb"],
+  "env": {
+    "browser": true,
+    "jest": true
+  },
+  "rules": {
+    "arrow-parens": "off",
+    "object-curly-newline": "off",
+    "max-len": ["error", { "code": 100 }],
+    "prefer-promise-reject-errors": ["off"],
+    "react/jsx-filename-extension": ["off"],
+    "react/jsx-fragments": [0, "element"],
+    "react/prop-types": ["warn"],
+    "no-return-assign": ["off"],
+    "no-unused-expressions": [
+      "error",
+      { "allowShortCircuit": true, "allowTernary": true }
+    ],
+    "max-lines-per-function": [
+      "error",
+      { "max": 30, "skipBlankLines": true, "skipComments": true }
+    ],
+    "max-depth": ["error", 4],
+    "max-params": ["error", 3],
+    "semi": ["error", "never"],
+    "react-hooks/rules-of-hooks": "error",
+    "import/extensions": ["off"],
+    "import/no-absolute-path": ["off"]
+  }
+}

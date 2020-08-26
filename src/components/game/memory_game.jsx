@@ -8,25 +8,36 @@ import initialStore from '../../helpers/initial_store'
 import AudioToggler from '../audio/audio_toggler'
 import useGameController from './game_controller'
 import Stars from '../common/stars'
+import useFetch from '../fetch'
+import loader from '../../assets/images/loader.gif'
 
 const MemoryGame = () => {
   const [data, setData] = useState([])
   const { seconds, restart, toggleAudio, soundStatusIcon } = useGameController(data.length)
+  const { response, error, isLoading } = useFetch('https://swapi.dev/api/films/', { })
 
-  async function fetchData() {
-    const response = await axios('https://swapi.dev/api/films/')
-    setData(response.data.results)
-  }
+  useEffect(() => {
+    if (!isLoading && !error && response) setData(response.results)
+  }, [response, error, isLoading])
 
-  // treat promiso and treat errors
-  useEffect(() => { fetchData() }, [])
+
+
 
   return (
     <div>
       <Stars />
-      <GameInfo seconds={seconds} restart={restart} />
-      <AudioToggler toggleAudio={toggleAudio} soundStatusIcon={soundStatusIcon} />
-      <CardsWrapper cards={data} />
+
+      { isLoading ? (
+        <div className="loader">
+          <img src={loader} alt="" />
+        </div>
+      ) : (
+       <>
+         <GameInfo seconds={seconds} restart={restart} />
+         <AudioToggler toggleAudio={toggleAudio} soundStatusIcon={soundStatusIcon} />
+         <CardsWrapper cards={data} />
+       </>
+      )}
     </div>
   )
 }

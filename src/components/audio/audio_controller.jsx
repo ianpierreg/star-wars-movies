@@ -30,6 +30,7 @@ const useAudioController = ({ started, rightOnes, gameSize, selected }) => {
   }, [selected])
 
   const toggleAudio = () => {
+    console.log('oh eu aqui', themeMusic.paused)
     if (themeMusic.paused) {
       themeMusic.play()
       setSoundStatusIcon(soundOn)

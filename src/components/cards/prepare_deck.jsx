@@ -41,18 +41,24 @@ const usePrepareDeck = cards => {
     return localCardsArray.concat(localCardsArray)
   }
 
+  const manipulateCardsAndCreateDeck = () => {
+    setDeck([])
+    let localCards = [...cards]
+    localCards = includeImageAndColor(localCards)
+    localCards = doubleArrayItems(localCards)
+    localCards = includeId(localCards)
+    localCards = shuffleArray(localCards)
+    setDeck(localCards)
+  }
+
   useEffect(() => {
     if (started || cards.length === 0) return
     setTimeout(() => {
-      setDeck([])
-      let localCards = [...cards]
-      localCards = includeImageAndColor(localCards)
-      localCards = doubleArrayItems(localCards)
-      localCards = includeId(localCards)
-      localCards = shuffleArray(localCards)
-      setDeck(localCards)
+      manipulateCardsAndCreateDeck()
     }, 1000)
   }, [started, cards])
+
+
 
   return deck
 }

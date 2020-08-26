@@ -13,6 +13,17 @@ and mobile devices
 ### Mobile device
 ![Desktop](src/assets/images/responsive.gif)
 
+## Run project
+     npm install
+     npm start
+
+## Run tests
+    npm test
+
+DOCS
+-----
+I put together some basic doc so it is easier to navigate and understand the project.
+
 Components
 ----------
 

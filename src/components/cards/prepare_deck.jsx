@@ -6,8 +6,8 @@ import shuffleArray from '../../helpers/array'
 import giveMeOneColor from '../../helpers/color_random'
 
 /**
- * This custom hook will manipulate the array of card
- * (including parameters on the card object, shuffling and doubling array of cards and so on)
+ * This custom hook will manipulate the array of cards and turn it into a memory card deck
+
  * @param cards - array of distinct cards that will be used to construct the game deck
  * @returns {*[]} - deck of card ready to be used in the game
  */
@@ -57,6 +57,7 @@ const usePrepareDeck = cards => {
       manipulateCardsAndCreateDeck()
     }, 1000)
   }, [started, cards])
+
 
   return deck
 }

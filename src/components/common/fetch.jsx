@@ -1,5 +1,12 @@
 import { useState, useEffect } from 'react'
 
+/**
+ * Custom hook that fetches data from API
+ *
+ * @param url
+ * @param options
+ * @returns {{isLoading: boolean, response: object, error: object}}
+ */
 const useFetch = (url, options) => {
   const [response, setResponse] = useState(null)
   const [error, setError] = useState(null)

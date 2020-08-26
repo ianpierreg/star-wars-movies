@@ -22,7 +22,7 @@ and mobile devices
 
 DOCS
 -----
-I put together some basic doc so it is easier to navigate and understand the project.
+I put together some basic documentation so it makes the project easier to navigate and understand.
 
 Components
 ----------

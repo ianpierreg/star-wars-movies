@@ -4,39 +4,27 @@ import PropTypes from 'prop-types'
 import { useStore } from 'react-context-hook'
 import blueSaber from '../../assets/images/blueSaber.png'
 import greenSaber from '../../assets/images/greenSaber.png'
+import CommandButton from './command_button'
 
 const GameInfo = ({ seconds, restart }) => {
-  const [rightOnes] = useStore('rightOnes')
   const [bestTime] = useStore('bestTime')
-  const [gameSize] = useStore('gameSize')
-  const [started] = useStore('started')
 
-  const buttonText = () => {
-    if (!started) return 'Iniciar'
-    if (rightOnes.length === gameSize) return 'Embaralhar'
-    return 'Desistir'
-  }
-
-  const buttonClass = () => {
-    const newClass = 'main-button'
-    if(!started) return `${newClass} yellow`
-    if (rightOnes.length === gameSize) return `${newClass} blue`
-    return `${newClass} red`
-  }
-
-  // TODO: Extract button
   return (
     <div className="header">
       <div className="saber left-saber">
-        <img src={blueSaber} alt="sabre azul"/>
-        <span className="top-info left">Seu tempo: {seconds}</span>
+        <img src={blueSaber} alt="sabre azul" />
+        <span className="top-info left">
+          Seu tempo:
+          {seconds}
+        </span>
       </div>
-      <div className="main-button-wrapper">
-        <button onClick={restart} className={buttonClass()}>{buttonText()}</button>
-      </div>
+      <CommandButton restart={restart} />
       <div className="saber right-saber">
-        <img src={greenSaber} alt="sabre verde"/>
-        <span className="top-info right">Melhor tempo: {bestTime}</span>
+        <img src={greenSaber} alt="sabre verde" />
+        <span className="top-info right">
+          Melhor tempo:
+          {bestTime}
+        </span>
       </div>
     </div>
   )

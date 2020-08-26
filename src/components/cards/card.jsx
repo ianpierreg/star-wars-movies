@@ -3,6 +3,8 @@ import PropTypes from 'prop-types'
 import '../../assets/stylesheets/cards.scss'
 import { useStore } from 'react-context-hook'
 import initialStore from '../../helpers/initial_store'
+import CardFront from './card_front'
+import CardBack from './card_back'
 
 const Card = ({ card }) => {
   const [clicked, setClicked] = useState(false)
@@ -10,6 +12,14 @@ const Card = ({ card }) => {
   const [selected, setSelected] = useStore('selected')
   const [started] = useStore('started')
   const [rightOnes] = useStore('rightOnes')
+
+  const classes = () => {
+    const newClasses = ['card']
+    newClasses.push(started ? 'show' : 'hide')
+    if (clicked) newClasses.push('clicked')
+
+    return newClasses.join(' ')
+  }
 
   useEffect(() => { setClassName(classes()) }, [clicked])
 
@@ -45,38 +55,11 @@ const Card = ({ card }) => {
     setClicked(shouldSetClicked)
   }, [selected])
 
-
-  const classes = () => {
-    const newClasses = ['card']
-    newClasses.push(started ? 'show' : 'hide')
-    if(clicked) newClasses.push('clicked')
-
-    return newClasses.join(' ')
-  }
-
-//TODO: extract more components from here including stars
   return (
     <div className={className} onClick={started ? setMeAsSelected : () => {}}>
       <div className="content">
-        <div className="front metal">
-          <div className="module">
-            <div className="name-wrapper">
-              <div id="stars" />
-              <div id="stars2" />
-              <div id="stars3" />
-              <div className="star" style={card.color}>STAR</div>
-              <div className="wars" style={card.color}>WARS</div>
-            </div>
-          </div>
-        </div>
-        <div className="back metal">
-          <div className="moduletwo">
-            <img alt={card.title} src={card.image} />
-            <div className="movie-title">
-              <div className="movie-name">{card.title}</div>
-            </div>
-          </div>
-        </div>
+        <CardFront color={card.color} />
+        <CardBack image={card.image} title={card.title} />
       </div>
     </div>
   )

@@ -7,6 +7,7 @@ import GameInfo from './game_info'
 import initialStore from '../../helpers/initial_store'
 import AudioToggler from '../audio/audio_toggler'
 import useGameController from './game_controller'
+import Stars from '../common/stars'
 
 const MemoryGame = () => {
   const [data, setData] = useState([])
@@ -22,9 +23,7 @@ const MemoryGame = () => {
 
   return (
     <div>
-      <div id="stars" />
-      <div id="stars2" />
-      <div id="stars3" />
+      <Stars />
       <GameInfo seconds={seconds} restart={restart} />
       <AudioToggler toggleAudio={toggleAudio} soundStatusIcon={soundStatusIcon} />
       <CardsWrapper cards={data} />

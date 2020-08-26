@@ -95,7 +95,7 @@ $randomNumber: random(5);
   transform: rotateY(180deg);
 }
 
-.module {
+.front-face-wrapper {
   width: inherit;
   height: inherit;
   display: flex;
@@ -109,7 +109,7 @@ $randomNumber: random(5);
   background-size: cover;
 }
 
-.moduletwo {
+.back-face-wrapper {
   position: relative;
   box-sizing: border-box;
   color: black;

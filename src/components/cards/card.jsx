@@ -50,7 +50,9 @@ const Card = ({ card }) => {
   useEffect(() => {
     const { firstSelected, secondSelected } = selected
     const { id, episode_id: episodeId } = card
-    const shouldSetClicked = firstSelected.id === id || secondSelected.id === id || rightOnes.includes(episodeId)
+    const shouldSetClicked = firstSelected.id === id
+                             || secondSelected.id === id
+                             || rightOnes.includes(episodeId)
 
     setClicked(shouldSetClicked)
   }, [selected])

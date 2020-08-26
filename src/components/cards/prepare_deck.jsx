@@ -58,7 +58,6 @@ const usePrepareDeck = cards => {
     }, 1000)
   }, [started, cards])
 
-
   return deck
 }
 

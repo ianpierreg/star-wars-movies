@@ -4,7 +4,7 @@ import Stars from '../common/stars'
 
 const CardFront = ({ color }) => (
   <div className="front metal">
-    <div className="module">
+    <div className="front-face-wrapper">
       <div className="name-wrapper">
         <Stars />
         <div className="star" style={color}>STAR</div>

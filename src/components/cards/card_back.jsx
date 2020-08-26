@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 
 const CardBack = ({ title, image }) => (
   <div className="back metal">
-    <div className="moduletwo">
+    <div className="back-face-wrapper">
       <img alt={title} src={image} />
       <div className="movie-title">
         <div className="movie-name">{title}</div>

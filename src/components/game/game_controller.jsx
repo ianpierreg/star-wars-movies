@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react'
 import '../../assets/stylesheets/cards.scss'
 import { useStore } from 'react-context-hook'
 import initialStore from '../../helpers/initial_store'

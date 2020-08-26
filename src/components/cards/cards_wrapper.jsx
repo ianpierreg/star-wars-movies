@@ -1,20 +1,29 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import '../../assets/stylesheets/cards.scss'
 import PropTypes from 'prop-types'
 import Card from './card'
 import usePrepareDeck from './prepare_deck'
 
-const CardsWrapper = ({ mockData }) => {
-  const cards = usePrepareDeck(mockData)
+const CardsWrapper = ({ cards }) => {
+  const deck = usePrepareDeck(cards)
 
-  console.log(cards)
   return (
     <div className="movies-wrapper">
-      {cards.map(card => <Card card={card} key={card.id} />)}
+      {deck.map(card => <Card card={card} key={card.id} />)}
     </div>
   )
 }
 
-CardsWrapper.propTypes = {}
+CardsWrapper.propTypes = {
+  cards: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number,
+      episode_id: PropTypes.number,
+      image: PropTypes.string,
+      title: PropTypes.string,
+      color: PropTypes.object
+    })
+  ).isRequired
+}
 
 export default CardsWrapper

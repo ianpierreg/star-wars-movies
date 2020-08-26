@@ -2,11 +2,17 @@ import { useEffect, useState } from 'react';
 import '../../assets/stylesheets/cards.scss'
 import { useStore } from 'react-context-hook'
 import initialStore from '../../helpers/initial_store'
-import soundOn from "../../assets/images/soundOn.png";
-import soundOff from "../../assets/images/soundOff.png";
-import useAudioController from "../audio/audio_controller";
+import useAudioController from '../audio/audio_controller'
 
-const useGameController = (cardsLength) => {
+/**
+ * This is the hook that control the whole game
+ * Most of the application global store values are being modified only here as a way to prevent
+ * errors on manipulating the store
+ *
+ * @param cardsNumber - number of distinct cards that will be used in the game
+ * @returns {{seconds: number, restart: restart, soundStatusIcon: any, toggleAudio: toggleAudio}}
+ */
+const useGameController = (cardsNumber) => {
   const [seconds, setSeconds] = useState(0)
   const [timer, setTimer] = useState(null)
   const [selected, setSelected] = useStore('selected')
@@ -16,7 +22,7 @@ const useGameController = (cardsLength) => {
   const [gameSize, setGameSize] = useStore('gameSize')
   const { toggleAudio, soundStatusIcon } = useAudioController({ started, rightOnes, gameSize, selected })
 
-  useEffect(() => {setGameSize(cardsLength)}, [])
+  useEffect(() => { setGameSize(cardsNumber) }, [cardsNumber])
 
   useEffect(() => {
     const { firstSelected, secondSelected } = selected

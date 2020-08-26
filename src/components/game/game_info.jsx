@@ -3,6 +3,7 @@ import '../../assets/stylesheets/game_info.scss'
 import blueSaber from '../../assets/images/blueSaber.png'
 import greenSaber from '../../assets/images/greenSaber.png'
 import { useStore } from 'react-context-hook'
+import PropTypes from 'prop-types'
 
 const GameInfo = ({ seconds, restart }) => {
   const [rightOnes] = useStore('rightOnes')
@@ -38,6 +39,11 @@ const GameInfo = ({ seconds, restart }) => {
       </div>
     </div>
   )
+}
+
+GameInfo.propTypes = {
+  seconds: PropTypes.number.isRequired,
+  restart: PropTypes.func.isRequired
 }
 
 export default GameInfo

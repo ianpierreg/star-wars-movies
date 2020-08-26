@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import PropTypes from 'prop-types'
 import '../../assets/stylesheets/cards.scss'
 import { useStore } from 'react-context-hook'
 import initialStore from '../../helpers/initial_store'
@@ -52,6 +53,7 @@ const Card = ({ card }) => {
 
     return newClasses.join(' ')
   }
+
 //TODO: extract more components from here
   return (
     <div className={className} onClick={started ? setMeAsSelected : () => {}}>
@@ -80,6 +82,14 @@ const Card = ({ card }) => {
   )
 }
 
-Card.propTypes = {}
+Card.propTypes = {
+  card: PropTypes.shape({
+    id: PropTypes.number,
+    episode_id: PropTypes.number,
+    image: PropTypes.string,
+    title: PropTypes.string,
+    color: PropTypes.object
+  }).isRequired
+}
 
 export default Card

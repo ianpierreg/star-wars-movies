@@ -5,6 +5,18 @@ import initialStore from '../../helpers/initial_store'
 import soundOn from "../../assets/images/soundOn.png";
 import soundOff from "../../assets/images/soundOff.png";
 
+/**
+ * This is the custom hook that will control the whole audio played in the game
+ *
+ *  @param started - bool value to determine if the game has started
+ * @param rightOnes - array card type that the user has got right in the game
+ * @param gameSize - size of the game
+ * @param selected - object with the two last selected cards
+ * @returns {{
+   * soundStatusIcon: image for the audio toggle button
+   * toggleAudio: function to toggle audio
+ * }}
+ */
 const useAudioController = ({ started, rightOnes, gameSize, selected }) => {
   const [mounted, setMounted] = useState(false)
   const [soundStatusIcon, setSoundStatusIcon] = useState(soundOn)
@@ -36,7 +48,6 @@ const useAudioController = ({ started, rightOnes, gameSize, selected }) => {
   }
 
   useEffect(() => {
-    console.log('start song')
     setMounted(true)
     themeMusic.play()
     themeMusic.loop = true

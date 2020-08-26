@@ -17,8 +17,8 @@ import soundOff from '../../assets/images/soundOff.png'
  */
 const useAudioController = ({ started, rightOnes, gameSize, selected }) => {
   const [mounted, setMounted] = useState(false)
-  const [soundStatusIcon, setSoundStatusIcon] = useState(soundOn)
-  const [shouldPauseSounds, setShouldPauseSounds] = useState(false)
+  const [soundStatusIcon, setSoundStatusIcon] = useState(soundOff)
+  const [shouldPauseSounds, setShouldPauseSounds] = useState(true)
   const [endGameSound] = useState(new Audio('/sounds/gameEnd.mp3'))
   const [startGameSound] = useState(new Audio('/sounds/gameStart.mp3'))
   const [winGameSound] = useState(new Audio('/sounds/gameWin.mp3'))
@@ -30,7 +30,6 @@ const useAudioController = ({ started, rightOnes, gameSize, selected }) => {
   }, [selected])
 
   const toggleAudio = () => {
-    console.log('oh eu aqui', themeMusic.paused)
     if (themeMusic.paused) {
       themeMusic.play()
       setSoundStatusIcon(soundOn)
@@ -48,7 +47,6 @@ const useAudioController = ({ started, rightOnes, gameSize, selected }) => {
 
   useEffect(() => {
     setMounted(true)
-    themeMusic.play()
     themeMusic.loop = true
     themeMusic.volume = 0.03
     startGameSound.volume = 0.05

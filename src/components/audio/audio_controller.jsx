@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import '../../assets/stylesheets/cards.scss'
 import soundOn from '../../assets/images/soundOn.png'
 import soundOff from '../../assets/images/soundOff.png'
-import gameStart from '/public/sounds/gameStart.mp3'
+
 /**
  * This is the custom hook that will control the whole audio played in the game
  *
@@ -20,7 +20,7 @@ const useAudioController = ({ started, rightOnes, gameSize, selected }) => {
   const [soundStatusIcon, setSoundStatusIcon] = useState(soundOff)
   const [shouldPauseSounds, setShouldPauseSounds] = useState(true)
   const [endGameSound] = useState(new Audio('/star-wars-movies/sounds/gameEnd.mp3'))
-  const [startGameSound] = useState(new Audio(gameStart))
+  const [startGameSound] = useState(new Audio('/star-wars-movies/sounds/gameStart.mp3'))
   const [winGameSound] = useState(new Audio('/star-wars-movies/sounds/gameWin.mp3'))
   const [themeMusic] = useState(new Audio('/star-wars-movies/sounds/starWars.mp3'))
   const [selectedCardSound] = useState(new Audio('/star-wars-movies/sounds/cardSelection.mp3'))

@@ -1,11 +1,11 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import * as serviceWorker from './serviceWorker'
-import MemoryGame from './components/game/memory_game'
+import App from './components/app'
 
 ReactDOM.render(
   <React.StrictMode>
-    <MemoryGame />
+    <App />
   </React.StrictMode>,
   document.getElementById('root')
 )

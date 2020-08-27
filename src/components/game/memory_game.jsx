@@ -29,10 +29,9 @@ const MemoryGame = () => {
 
   return (
     <div>
-      <Stars />
-      {isLoading ? <PageLoader /> : game()}
+      <PageLoader />
     </div>
   )
 }
 
-export default withStore(MemoryGame, initialStore, { })
+export default MemoryGame

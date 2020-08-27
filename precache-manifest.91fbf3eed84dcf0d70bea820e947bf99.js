@@ -1,11 +1,11 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "9b8bed0c82a8029d29db2ad846b7777a",
+    "revision": "e9dc83d3ed50c8baef1d1b78f897c378",
     "url": "/star-wars-movies/index.html"
   },
   {
-    "revision": "3f8b250d14b1e96b13d0",
-    "url": "/star-wars-movies/static/css/main.e14a1f4e.chunk.css"
+    "revision": "c6ea3ad614feea685c8e",
+    "url": "/star-wars-movies/static/css/main.793b80c8.chunk.css"
   },
   {
     "revision": "bcb4719f679214d3109f",
@@ -16,7 +16,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/star-wars-movies/static/js/2.90becc78.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "3f8b250d14b1e96b13d0",
+    "revision": "c6ea3ad614feea685c8e",
     "url": "/star-wars-movies/static/js/main.eecf55a2.chunk.js"
   },
   {

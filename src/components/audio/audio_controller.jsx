@@ -19,11 +19,11 @@ const useAudioController = ({ started, rightOnes, gameSize, selected }) => {
   const [mounted, setMounted] = useState(false)
   const [soundStatusIcon, setSoundStatusIcon] = useState(soundOff)
   const [shouldPauseSounds, setShouldPauseSounds] = useState(true)
-  const [endGameSound] = useState(new Audio('../../../public/sounds/gameEnd.mp3'))
-  const [startGameSound] = useState(new Audio('../../../public/sounds/gameStart.mp3'))
-  const [winGameSound] = useState(new Audio('../../../public/sounds/gameWin.mp3'))
-  const [themeMusic] = useState(new Audio('../../../public/sounds/starWars.mp3'))
-  const [selectedCardSound] = useState(new Audio('../../../public/sounds/cardSelection.mp3'))
+  const [endGameSound] = useState(new Audio('/star-wars-movies/sounds/gameEnd.mp3'))
+  const [startGameSound] = useState(new Audio('/star-wars-movies/sounds/gameStart.mp3'))
+  const [winGameSound] = useState(new Audio('/star-wars-movies/sounds/gameWin.mp3'))
+  const [themeMusic] = useState(new Audio('/star-wars-movies/sounds/starWars.mp3'))
+  const [selectedCardSound] = useState(new Audio('/star-wars-movies/sounds/cardSelection.mp3'))
 
   useEffect(() => {
     if (mounted && !shouldPauseSounds) selectedCardSound.play()

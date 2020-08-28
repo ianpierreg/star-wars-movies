@@ -7,6 +7,8 @@ on mobile devices and although it needs some fixing
 and refactoring, it can be played on both desktops 
 and mobile devices
 
+[Play here](https://ianpierreg.github.io/star-wars-movies/)
+
 ### Desktop
 ![Desktop](src/assets/images/desktop.gif)
 
